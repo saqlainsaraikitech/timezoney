@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+  <title id="title">TimeZoney</title>
+  <desc id="desc">TimeZoney wordmark with a premium green and gold clock globe.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="164" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#116f5b"/>
+      <stop offset="1" stop-color="#063b31"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="38" y1="28" x2="145" y2="151" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe39a"/>
+      <stop offset=".48" stop-color="#f1b743"/>
+      <stop offset="1" stop-color="#bd7620"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="160" height="160" rx="47" fill="url(#bg)"/>
+  <circle cx="90" cy="90" r="56" fill="#082f28" fill-opacity=".35" stroke="url(#gold)" stroke-width="7"/>
+  <path d="M38 90h104M90 34c-18 17-27 36-27 56s9 39 27 56M90 34c18 17 27 36 27 56s-9 39-27 56" fill="none" stroke="#d9f1e7" stroke-opacity=".46" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M90 51v40l30 19" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="90" cy="90" r="7" fill="#ffe8a8"/>
+  <text x="198" y="112" fill="#10231c" font-family="Manrope, 'DejaVu Sans', sans-serif" font-size="78" font-weight="700" letter-spacing="-4">Time<tspan fill="#0c8066">Zoney</tspan></text>
+  <circle cx="725" cy="50" r="5" fill="#f1b743"/>
+</svg>

@@ -1,0 +1,2346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-focCNqy8+yF4OBF+PNNxTWIjQKi/PZU2lw553dqOdbI=' 'sha256-CAPQHR55dyKuzaAZL8w8RGJZeRe1ipY0Avl+79t1f7A='; style-src 'sha256-rk7OqxOtfkNviTdoOvGCuU5f7SWpzjFmQyVtYxAJf/o=' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action https://formsubmit.co; frame-src 'none'; worker-src 'none'; manifest-src 'none'; upgrade-insecure-requests" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <title>Time Zone Converter FAQ | TimeZoney</title>
+  <meta name="description" content="Convert posting times across countries and cities with TimeZoney. Plan YouTube, TikTok, Instagram and social media schedules with DST-aware time zones." />
+  <meta name="keywords" content="time zone converter for content creators, social media time zone converter, YouTube upload time converter, TikTok posting time converter, Instagram posting time converter, international content scheduler, multiple country time zones, global posting time" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="DigitalMax" />
+  <meta property="og:title" content="Time Zone Converter for Content Creators | TimeZoney" />
+  <meta property="og:description" content="Convert posting times across countries and cities with TimeZoney. Plan YouTube, TikTok, Instagram and social media schedules with DST-aware time zones." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TimeZoney" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #eef3ef;
+      --surface: #ffffff;
+      --surface-2: #f2f6f3;
+      --text: #10231c;
+      --muted: #56665f;
+      --line: #cfdbd4;
+      --accent: #0c8066;
+      --accent-strong: #075f4c;
+      --accent-soft: #d8f1e8;
+      --ink: #102b24;
+      --ink-2: #173a31;
+      --gold: #f1b743;
+      --gold-soft: #fff1cf;
+      --warm: #c95835;
+      --warm-soft: #fbe5dc;
+      --shadow: 0 26px 70px rgba(17, 53, 42, .14);
+      --shadow-soft: 0 10px 30px rgba(17, 53, 42, .08);
+      --radius: 24px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #091510;
+        --surface: #11231c;
+        --surface-2: #182e25;
+        --text: #eff8f3;
+        --muted: #acc0b5;
+        --line: #2b4439;
+        --accent: #58d0ad;
+        --accent-strong: #8ae5c8;
+        --accent-soft: #163f33;
+        --ink: #071b15;
+        --ink-2: #0d2c23;
+        --gold: #f4c766;
+        --gold-soft: #433515;
+        --warm: #f09a78;
+        --warm-soft: #43291f;
+        --shadow: 0 28px 70px rgba(0, 0, 0, .4);
+        --shadow-soft: 0 12px 32px rgba(0, 0, 0, .28);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 8% 2%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 25rem),
+        radial-gradient(circle at 92% 24%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Manrope, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, select, textarea { font: inherit; }
+    button, select { cursor: pointer; }
+    .page {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 20px 0 64px;
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 0 0 42px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .brand img {
+      width: 42px;
+      height: 42px;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(7, 82, 68, .2);
+    }
+    .brand-name {
+      font-size: 1.2rem;
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    .brand-name b { color: var(--accent); font-weight: 700; }
+    .brand-tagline {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .025em;
+    }
+    .site-header .site-nav { margin: 0 0 0 auto; }
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 15px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      border-radius: 11px 4px 11px 11px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: var(--shadow-soft);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .nav-toggle span[aria-hidden="true"] { font-size: 1.25rem; line-height: 1; }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 4px;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 0 42px auto;
+      padding: 5px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      box-shadow: var(--shadow-soft);
+    }
+    .site-nav a {
+      padding: 8px 11px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .site-nav a:hover, .site-nav a:focus-visible, .site-nav a[aria-current="page"] {
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+      outline: none;
+    }
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+      align-items: center;
+      gap: clamp(30px, 6vw, 78px);
+      margin-bottom: 34px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 15px;
+      color: var(--accent-strong);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--gold);
+    }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      line-height: .94;
+      letter-spacing: -.065em;
+      font-weight: 700;
+    }
+    h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .lead {
+      max-width: 670px;
+      margin: 20px 0 0;
+      font-size: clamp(1rem, 2vw, 1.17rem);
+      line-height: 1.67;
+      color: var(--muted);
+    }
+    .hero-card {
+      position: relative;
+      min-height: 238px;
+      overflow: hidden;
+      padding: 25px;
+      border-radius: 30px 8px 30px 30px;
+      background: var(--ink);
+      color: #f3fff9;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .hero-card::before, .hero-card::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+    }
+    .hero-card::before { width: 240px; height: 240px; right: -72px; top: -106px; }
+    .hero-card::after { width: 150px; height: 150px; right: -28px; top: -62px; }
+    .hero-label {
+      margin: 0;
+      color: rgba(255,255,255,.65);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-time {
+      margin: 20px 0 4px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.07em;
+    }
+    .hero-caption { margin: 0; color: rgba(255,255,255,.7); font-size: .8rem; }
+    .route-line { display: flex; align-items: center; gap: 9px; margin: 24px 0 20px; }
+    .route-line span { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .route-line i { flex: 1; height: 1px; background: rgba(255,255,255,.3); }
+    .route-line strong { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    .detected {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.74);
+      font-size: .78rem;
+    }
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(241,183,67,.18);
+    }
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .panel, .result {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius) 8px var(--radius) var(--radius);
+      padding: clamp(22px, 4vw, 36px);
+    }
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold) 0 24%, var(--accent) 24% 100%);
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      font-size: 1.08rem;
+      letter-spacing: -.01em;
+    }
+    .step {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px 3px 9px 9px;
+      background: var(--ink);
+      color: #f4fff9;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .74rem;
+      box-shadow: 4px 4px 0 var(--gold-soft);
+    }
+    .fields { display: grid; gap: 18px; }
+    .field { min-width: 0; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .035em;
+    }
+    input, select, textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid var(--line);
+      border-radius: 12px 4px 12px 12px;
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 0 14px;
+      outline: none;
+      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    textarea {
+      min-height: 150px;
+      padding: 14px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+    input:hover, select:hover, textarea:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+    input:focus, select:focus, textarea:focus, button:focus-visible {
+      border-color: var(--accent);
+      background: var(--surface);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .search-wrap { position: relative; }
+    .search-wrap svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .search-wrap input { padding-left: 42px; }
+    .hint {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: .77rem;
+      line-height: 1.5;
+    }
+    .quick-label { margin: 2px 0 9px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .quick-times { display: flex; flex-wrap: wrap; gap: 8px; }
+    .time-chip {
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    .time-chip:hover, .time-chip[aria-pressed="true"] {
+      color: var(--accent-strong);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .divider { height: 1px; background: var(--line); margin: 26px 0; }
+    .local-row {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+      gap: 15px;
+    }
+    .local-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+    .local-icon svg { width: 20px; }
+    .local-copy { min-width: 0; }
+    .local-copy strong { display: block; font-size: .9rem; }
+    .local-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: .76rem; }
+    .source-select { margin-top: 14px; }
+    .result {
+      position: sticky;
+      top: 24px;
+      overflow: hidden;
+      border-radius: 8px var(--radius) var(--radius) var(--radius);
+    }
+    .result-top {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 38px);
+      background: var(--ink);
+      color: #fff;
+      isolation: isolate;
+    }
+    .result-top::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 210px;
+      height: 210px;
+      right: -100px;
+      bottom: -120px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 34px rgba(88,208,173,.09), 0 0 0 72px rgba(88,208,173,.06);
+    }
+    .result-kicker {
+      display: inline-flex;
+      margin: 0 0 18px;
+      padding: 7px 9px;
+      border-radius: 7px;
+      background: rgba(255,255,255,.1);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+    .result-time {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: clamp(2.9rem, 8vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.07em;
+      white-space: nowrap;
+    }
+    .result-date { margin: 14px 0 0; font-size: .94rem; line-height: 1.5; }
+    .conversion-arrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.24);
+      font-size: .82rem;
+      line-height: 1.5;
+    }
+    .conversion-arrow svg { flex: 0 0 auto; width: 28px; height: 28px; }
+    .result-body { padding: clamp(22px, 4vw, 32px); }
+    .fact-list { display: grid; gap: 0; margin: 0; }
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .fact:first-child { padding-top: 0; }
+    .fact dt { color: var(--muted); font-size: .8rem; }
+    .fact dd { margin: 0; text-align: right; font-size: .82rem; font-weight: 700; }
+    .copy-panel { margin-top: 24px; }
+    .copy-title { margin: 0 0 11px; font-size: .84rem; font-weight: 700; }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      border-radius: 11px 4px 11px 11px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+    }
+    .copy-btn:hover { transform: translateY(-1px); }
+    .copy-btn svg { width: 17px; height: 17px; }
+    .copy-btn {
+      width: 100%;
+      margin-top: 9px;
+      border: 0;
+      background: var(--text);
+      color: var(--surface);
+      font-size: .8rem;
+    }
+    .copy-btn:hover { opacity: .9; }
+    .dst-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 12px 13px;
+      border-radius: 10px;
+      background: var(--warm-soft);
+      color: color-mix(in srgb, var(--warm) 70%, var(--text));
+      font-size: .75rem;
+      line-height: 1.55;
+    }
+    .dst-note svg { flex: 0 0 auto; width: 17px; margin-top: 1px; }
+    .audience-builder {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+    .add-btn, .remove-target {
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+    .add-btn {
+      min-height: 50px;
+      padding: 0 16px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+    .target-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .target-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px 16px;
+      align-items: center;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-2);
+    }
+    .target-card strong { display: block; font-size: .84rem; }
+    .target-card span { display: block; margin-top: 3px; color: var(--muted); font-size: .74rem; line-height: 1.45; }
+    .target-card time { grid-column: 1 / -1; font-family: "IBM Plex Mono", monospace; color: var(--accent-strong); font-size: .84rem; }
+    .remove-target { width: 32px; height: 32px; border-radius: 50%; }
+    .content-section {
+      margin-top: 64px;
+      padding-top: 42px;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 18px;
+    }
+    .content-section h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.55rem);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+    }
+    .article-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+      gap: 42px;
+      margin-top: 24px;
+    }
+    .article-copy { max-width: 760px; }
+    .article-copy h3 { margin: 30px 0 8px; font-size: 1.08rem; }
+    .article-copy p, .article-copy li { color: var(--muted); font-size: .94rem; line-height: 1.75; }
+    .article-copy ol { padding-left: 20px; }
+    .article-copy strong { color: var(--text); }
+    .guide-note {
+      align-self: start;
+      padding: 22px;
+      border-radius: 10px 22px 22px 22px;
+      background: var(--accent-soft);
+    }
+    .guide-note h3 { margin: 0 0 12px; font-size: 1rem; }
+    .guide-note p { margin: 0; color: var(--accent-strong); font-size: .82rem; line-height: 1.65; }
+    .topic-index {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 26px 0 44px;
+    }
+    .topic-link {
+      display: flex;
+      flex-direction: column;
+      min-height: 148px;
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 8px 20px 20px 20px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      box-shadow: var(--shadow-soft);
+    }
+    .topic-link:hover, .topic-link:focus-visible { border-color: var(--accent); outline: none; }
+    .topic-link strong { font-size: .96rem; line-height: 1.35; }
+    .topic-link span { margin-top: 8px; color: var(--muted); font-size: .78rem; line-height: 1.55; }
+    .topic-link b { margin-top: auto; padding-top: 14px; color: var(--accent-strong); font-size: .75rem; }
+    .seo-article {
+      display: grid;
+      grid-template-columns: minmax(180px, .38fr) minmax(0, 1fr);
+      gap: clamp(24px, 5vw, 64px);
+      padding: 38px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 18px;
+    }
+    .seo-article:first-of-type { border-top: 0; padding-top: 0; }
+    .article-heading h3 {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .article-heading p { margin: 10px 0 0; color: var(--accent-strong); font-size: .76rem; font-weight: 700; }
+    .seo-body { max-width: 780px; }
+    .seo-body h4 { margin: 24px 0 7px; font-size: 1rem; }
+    .seo-body h4:first-child { margin-top: 0; }
+    .seo-body p, .seo-body li { color: var(--muted); font-size: .92rem; line-height: 1.75; }
+    .seo-body ul, .seo-body ol { padding-left: 20px; }
+    .seo-body strong { color: var(--text); }
+    .faq-list { display: grid; gap: 10px; max-width: 840px; margin-top: 24px; }
+    details { border-bottom: 1px solid var(--line); padding: 0 0 12px; }
+    summary { cursor: pointer; padding: 10px 0; font-weight: 700; }
+    details p { margin: 6px 0 8px; color: var(--muted); line-height: 1.65; }
+    .policy-page {
+      display: none;
+      max-width: 820px;
+      margin: 12px auto 0;
+      padding: clamp(26px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius) 8px var(--radius) var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    body.policy-mode .intro,
+    body.policy-mode .workspace,
+    body.policy-mode .creator-suite,
+    body.policy-mode .content-section { display: none; }
+    body.policy-mode .policy-page:not([hidden]) { display: block; }
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contact-list li {
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px 18px 18px 18px;
+      background: var(--surface-2);
+    }
+    .contact-list strong { display: block; margin-bottom: 4px; color: var(--text); }
+    .contact-list span { display: block; color: var(--muted); font-size: .86rem; line-height: 1.65; }
+    .contact-form {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+      padding: clamp(20px, 4vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: 8px 22px 22px 22px;
+      background: var(--surface-2);
+    }
+    .contact-form .split { align-items: start; }
+    .contact-submit {
+      min-height: 50px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 10px 4px 10px 10px;
+      background: var(--ink);
+      color: #f4fff9;
+      font-weight: 700;
+    }
+    .contact-submit:hover { opacity: .92; }
+    .contact-note, .contact-status {
+      margin: 0;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+    .contact-note a { font-weight: 700; }
+    .contact-status { color: var(--accent-strong); font-weight: 700; }
+    .contact-status:empty { display: none; }
+    .cookie-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: color-mix(in srgb, var(--ink) 38%, transparent);
+    }
+    .cookie-layer[hidden] { display: none; }
+    .cookie-banner {
+      width: min(430px, 100%);
+      padding: 24px;
+      border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+      border-radius: 12px 26px 26px 26px;
+      background: var(--surface);
+      box-shadow: 0 28px 90px rgba(5, 27, 20, .34);
+    }
+    .cookie-banner strong { display: block; margin-bottom: 8px; font-size: 1.05rem; }
+    .cookie-banner p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.65; }
+    .cookie-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-top: 19px; }
+    .cookie-actions a { color: var(--accent-strong); font-size: .8rem; font-weight: 700; }
+    .cookie-actions button {
+      min-height: 42px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 9px 3px 9px 9px;
+      background: var(--ink);
+      color: #f4fff9;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .policy-page h1 { max-width: none; font-size: clamp(2rem, 5vw, 3.5rem); }
+    .policy-page .effective { margin: 12px 0 30px; color: var(--muted); font-size: .82rem; }
+    .policy-page h2 { margin: 28px 0 9px; font-size: 1.08rem; letter-spacing: -.015em; }
+    .policy-page p, .policy-page li { color: var(--muted); font-size: .9rem; line-height: 1.75; }
+    .policy-page ul { padding-left: 20px; }
+    .policy-page a { color: var(--accent-strong); }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 26px;
+      color: var(--accent-strong);
+      font-size: .82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .75rem;
+    }
+    .site-footer a { color: inherit; }
+    .error {
+      display: none;
+      margin: 0;
+      padding: 22px;
+      background: var(--warm-soft);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .error strong { display: block; color: var(--warm); margin-bottom: 4px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 16px);
+      z-index: 10;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--surface);
+      font-size: .82rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    .creator-suite {
+      margin-top: 34px;
+      padding-top: 42px;
+      border-top: 1px solid var(--line);
+    }
+    .suite-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, .42fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    .suite-heading h2 { margin: 0; font-size: clamp(1.75rem, 3.5vw, 3rem); letter-spacing: -.045em; line-height: 1.05; }
+    .suite-heading p { margin: 0; color: var(--muted); line-height: 1.65; font-size: .9rem; }
+    .tool-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .tool-card {
+      min-width: 0;
+      padding: clamp(20px, 3vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 8px 22px 22px 22px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+    .tool-card.wide { grid-column: 1 / -1; }
+    .tool-head { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 18px; }
+    .tool-number {
+      display: grid; place-items: center; flex: 0 0 auto; width: 34px; height: 34px;
+      border-radius: 9px 3px 9px 9px; background: var(--gold-soft); color: var(--text);
+      font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 700;
+    }
+    .tool-head h3 { margin: 0; font-size: 1.05rem; letter-spacing: -.02em; }
+    .tool-head p { margin: 4px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+    .compact-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+    .compact-fields.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .compact-fields label { margin-bottom: 6px; font-size: .69rem; }
+    .compact-fields input, .compact-fields select { min-height: 46px; }
+    .action-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+    .tool-action, .tool-link {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 15px;
+      border: 1px solid var(--accent); border-radius: 10px 4px 10px 10px;
+      background: var(--accent-soft); color: var(--accent-strong); font-size: .78rem; font-weight: 700; text-decoration: none;
+    }
+    .tool-action.primary { border-color: var(--ink); background: var(--ink); color: #f4fff9; }
+    .tool-output { margin-top: 15px; }
+    .window-list, .calendar-list, .grid-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .window-item, .calendar-item, .grid-item {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; align-items: center;
+      padding: 12px 13px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2);
+    }
+    .window-item strong, .calendar-item strong, .grid-item strong { font-size: .82rem; }
+    .window-item span, .calendar-item span, .grid-item span { color: var(--muted); font-size: .73rem; line-height: 1.45; }
+    .window-item time, .calendar-item time, .grid-item time { text-align: right; font-family: "IBM Plex Mono", monospace; color: var(--accent-strong); font-size: .78rem; }
+    .grid-list { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .grid-item { grid-template-columns: 1fr; align-content: start; }
+    .grid-item time { text-align: left; }
+    .share-preview {
+      overflow-wrap: anywhere; padding: 12px 13px; border: 1px dashed var(--line); border-radius: 8px;
+      background: var(--surface-2); color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .72rem; line-height: 1.55;
+    }
+    .status-line { margin: 12px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.55; }
+    .status-line strong { color: var(--text); }
+    .overlap-band { margin-top: 15px; padding: 16px; border-radius: 8px 18px 18px 18px; background: var(--ink); color: #f4fff9; }
+    .overlap-band strong { display: block; font-size: 1rem; }
+    .overlap-band span { display: block; margin-top: 6px; color: rgba(255,255,255,.7); font-size: .78rem; line-height: 1.55; }
+    @media (max-width: 980px) { .grid-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 800px) {
+      .suite-heading, .tool-grid { grid-template-columns: 1fr; }
+      .tool-card.wide { grid-column: auto; }
+      .grid-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .site-header {
+        position: relative;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .brand img { width: 40px; height: 40px; }
+      .brand-name { font-size: 1.08rem; }
+      .brand-tagline { display: none; }
+      .site-header .nav-toggle { margin: 0 0 0 auto; }
+      .site-header .site-nav {
+        flex-basis: 100%;
+        margin: 0 0 0 auto;
+      }
+      .page { width: min(100% - 24px, 620px); padding: 14px 0 36px; }
+      .nav-toggle {
+        display: inline-flex;
+        margin: 0 0 18px auto;
+      }
+      .site-nav {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        width: min(290px, 100%);
+        margin: -8px 0 24px auto;
+        padding: 7px;
+      }
+      .site-nav.is-open { display: flex; }
+      .site-nav a { width: 100%; padding: 11px 13px; text-align: left; font-size: .78rem; }
+      .intro { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
+      .hero-card { min-height: 220px; }
+      .workspace { grid-template-columns: 1fr; }
+      .result { position: static; }
+      .panel { border-radius: 18px 6px 18px 18px; }
+      .result { border-radius: 6px 18px 18px 18px; }
+      .article-grid { grid-template-columns: 1fr; gap: 24px; }
+      .topic-index { grid-template-columns: 1fr; }
+      .seo-article { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 560px) {
+      .audience-builder, .compact-fields, .compact-fields.three { grid-template-columns: 1fr; }
+      .add-btn, .tool-action, .tool-link { width: 100%; }
+      .grid-list { grid-template-columns: 1fr; }
+      .window-item, .calendar-item { grid-template-columns: 1fr; }
+      .window-item time, .calendar-item time { text-align: left; }
+    }
+    @media (max-width: 480px) {
+      .split { grid-template-columns: 1fr; }
+      .panel { padding: 20px; }
+      .result-time { font-size: clamp(2.65rem, 17vw, 4rem); }
+      .fact { display: grid; gap: 4px; }
+      .fact dd { text-align: left; }
+      .cookie-layer { padding: 14px; }
+      .cookie-banner { padding: 21px; }
+      .cookie-actions { justify-content: space-between; }
+      .site-footer { display: block; }
+    }
+    body.home-mode .content-section,
+    body.home-mode .policy-page { display: none; }
+    body.guide-mode .intro,
+    body.guide-mode .workspace,
+    body.guide-mode .creator-suite,
+    body.guide-mode #articles,
+    body.guide-mode #faq,
+    body.guide-mode .policy-page { display: none; }
+    body.guide-mode #guide {
+      margin-top: 12px;
+      padding-top: 0;
+      border-top: 0;
+    }
+    body.faq-mode .intro,
+    body.faq-mode .workspace,
+    body.faq-mode .creator-suite,
+    body.faq-mode #guide,
+    body.faq-mode #articles,
+    body.faq-mode .policy-page { display: none; }
+    body.faq-mode #faq {
+      margin-top: 12px;
+      padding-top: 0;
+      border-top: 0;
+    }
+    body.articles-mode .intro,
+    body.articles-mode .workspace,
+    body.articles-mode .creator-suite,
+    body.articles-mode #guide,
+    body.articles-mode #faq,
+    body.articles-mode .policy-page { display: none; }
+    body.articles-mode #articles {
+      margin-top: 12px;
+      padding-top: 0;
+      border-top: 0;
+    }
+    button.topic-link {
+      width: 100%;
+      color: var(--text);
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .world-clock-strip {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: stretch;
+      gap: 0;
+      margin: -18px 0 36px;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+      border-radius: 8px 18px 18px 18px;
+      background: var(--ink);
+      color: #f4fff9;
+      box-shadow: var(--shadow-soft);
+    }
+    .clock-strip-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 18px;
+      border-right: 1px solid rgba(255,255,255,.13);
+      color: rgba(255,255,255,.82);
+      font-size: .76rem;
+      white-space: nowrap;
+    }
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(241,183,67,.14); }
+    .clock-cities { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .clock-city { min-width: 0; padding: 11px 16px; border-left: 1px solid rgba(255,255,255,.09); }
+    .clock-city:first-child { border-left: 0; }
+    .clock-city span { display: block; margin-bottom: 3px; color: rgba(255,255,255,.6); font-size: .66rem; font-weight: 700; }
+    .clock-city time { display: block; font-family: "IBM Plex Mono", monospace; font-size: .83rem; white-space: nowrap; }
+    .full-field { grid-column: 1 / -1; }
+    .decision-box {
+      margin-top: 15px;
+      padding: 17px;
+      border-radius: 7px 18px 18px 18px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+    }
+    .decision-box.yes { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+    .decision-box.no { background: var(--warm-soft); border-color: color-mix(in srgb, var(--warm) 42%, var(--line)); }
+    .decision-box strong { display: block; font-size: .92rem; line-height: 1.45; }
+    .decision-box span { display: block; margin-top: 5px; color: var(--muted); font-size: .76rem; line-height: 1.55; }
+    .meeting-table { display: grid; gap: 1px; margin-top: 16px; overflow: hidden; border: 1px solid var(--line); border-radius: 7px 17px 17px 17px; background: var(--line); }
+    .meeting-table > div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 14px; padding: 13px 14px; background: var(--surface-2); }
+    .meeting-table span { color: var(--muted); font-size: .72rem; font-weight: 700; }
+    .meeting-table strong { font-size: .78rem; line-height: 1.5; }
+    .countdown-card { background: var(--ink); color: #f4fff9; }
+    .countdown-card .tool-head p, .countdown-card label { color: rgba(255,255,255,.66); }
+    .countdown-card input, .countdown-card select { border-color: rgba(255,255,255,.16); background: var(--ink-2); color: #f4fff9; }
+    .countdown-card .tool-action.primary { border-color: var(--gold); background: var(--gold); color: #13271f; }
+    .countdown-display { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.15); }
+    .countdown-value { font-family: "IBM Plex Mono", monospace; font-size: clamp(1.8rem, 5vw, 3.4rem); line-height: 1; letter-spacing: -.05em; color: var(--gold); }
+    .countdown-display p { margin: 10px 0 0; color: rgba(255,255,255,.72); font-size: .8rem; line-height: 1.55; }
+    @media (max-width: 800px) {
+      .world-clock-strip { grid-template-columns: 1fr; margin: 0 0 24px; }
+      .clock-strip-label { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.13); }
+      .clock-cities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .clock-city:nth-child(3) { border-left: 0; }
+      .clock-city:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.09); }
+    }
+    @media (max-width: 480px) {
+      .meeting-table > div { grid-template-columns: 1fr; gap: 4px; }
+      .clock-city { padding: 10px 12px; }
+      .clock-city time { font-size: .77rem; }
+    }
+    .dst-alert {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      margin: -20px 0 30px;
+      padding: 13px 15px;
+      border: 1px solid color-mix(in srgb, var(--gold) 54%, var(--line));
+      border-radius: 7px 17px 17px 17px;
+      background: var(--gold-soft);
+      color: var(--text);
+      box-shadow: var(--shadow-soft);
+    }
+    .dst-alert[hidden] { display: none; }
+    .dst-alert-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #15271f;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+    }
+    .dst-alert strong { display: block; font-size: .86rem; }
+    .dst-alert span { display: block; margin-top: 2px; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+    .dst-alert button { border: 0; background: transparent; color: var(--muted); font-size: 1.1rem; }
+    .region-picks, .snippet-picks { display: flex; flex-wrap: wrap; gap: 8px; }
+    .region-pick {
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px 3px 9px 9px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 700;
+    }
+    .region-pick[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-strong); }
+    .heat-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .42fr); gap: 20px; align-items: end; }
+    .time-slider { padding: 0; accent-color: var(--accent); background: transparent; border: 0; box-shadow: none; }
+    .time-slider:focus { background: transparent; box-shadow: none; }
+    .slider-caption { display: flex; justify-content: space-between; gap: 10px; margin-top: 4px; color: var(--muted); font-size: .69rem; }
+    .heat-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 16px 0 0; color: var(--muted); font-size: .7rem; }
+    .heat-legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend-swatch { width: 10px; height: 10px; border-radius: 2px; }
+    .sleep { background: #cf5a4e; }
+    .work { background: #e0ad37; }
+    .peak { background: #16866e; }
+    .steady { background: color-mix(in srgb, var(--muted) 20%, var(--surface-2)); }
+    .heatmap { display: grid; gap: 13px; margin-top: 18px; }
+    .heat-row { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 12px; align-items: center; }
+    .heat-label strong { display: block; font-size: .78rem; }
+    .heat-label span { display: block; margin-top: 3px; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .68rem; }
+    .heat-track { display: grid; grid-template-columns: repeat(24, minmax(3px, 1fr)); gap: 2px; min-width: 0; }
+    .heat-cell { height: 25px; border-radius: 2px; opacity: .78; }
+    .heat-cell.is-current { outline: 2px solid var(--text); outline-offset: 2px; opacity: 1; z-index: 1; }
+    .heat-hours { display: grid; grid-template-columns: repeat(6, 1fr); margin: 5px 0 0 157px; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .62rem; }
+    .heat-hours span:last-child { text-align: right; }
+    .golden-window { margin-top: 17px; padding: 15px 16px; border-radius: 7px 18px 18px 18px; background: var(--ink); color: #f4fff9; }
+    .golden-window strong { display: block; font-size: .9rem; }
+    .golden-window span { display: block; margin-top: 5px; color: rgba(255,255,255,.7); font-size: .75rem; line-height: 1.55; }
+    .queue-preview { margin-top: 16px; padding: 16px; border: 1px solid var(--line); border-radius: 7px 18px 18px 18px; background: var(--surface-2); }
+    .queue-preview[hidden] { display: none; }
+    .queue-time { margin: 0 0 13px; color: var(--accent-strong); font-weight: 700; line-height: 1.5; }
+    .queue-checklist { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .queue-checklist li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; color: var(--muted); font-size: .76rem; }
+    .queue-checklist time { color: var(--text); font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 700; }
+    .download-note { margin: 10px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.5; }
+    .snippet-output { min-height: 210px; margin-top: 14px; font-family: "IBM Plex Mono", monospace; font-size: .76rem; }
+    @media (max-width: 700px) {
+      .heat-controls { grid-template-columns: 1fr; }
+      .heat-row { grid-template-columns: 1fr; gap: 7px; }
+      .heat-label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+      .heat-label span { margin-top: 0; text-align: right; }
+      .heat-hours { margin-left: 0; }
+      .queue-checklist li { grid-template-columns: 1fr; gap: 2px; }
+      .dst-alert { margin: 0 0 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body class="faq-mode" data-page="faq">
+  <main class="page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="TimeZoney home">
+        <img src="assets/timezoney-mark.svg" alt="" width="42" height="42" />
+        <span><span class="brand-name">Time<b>Zoney</b></span><span class="brand-tagline">World time, made clear</span></span>
+      </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open navigation menu">
+      <span aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+    <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+      <a href="index.html">Converter</a>
+      <a href="guide.html">Guide</a>
+      <a href="articles.html">Articles</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    </header>
+
+    <aside class="dst-alert" id="dstAlert" aria-live="polite" hidden>
+      <span class="dst-alert-mark" aria-hidden="true">DST</span>
+      <div><strong id="dstAlertTitle">Upcoming daylight-saving shift</strong><span id="dstAlertText"></span></div>
+      <button id="dismissDst" type="button" aria-label="Dismiss daylight-saving alert">×</button>
+    </aside>
+
+    <section class="world-clock-strip" aria-label="Live world clocks">
+      <div class="clock-strip-label"><span class="live-dot" aria-hidden="true"></span><strong>Live world clock</strong></div>
+      <div class="clock-cities">
+        <div class="clock-city"><span>New York</span><time id="clockNewYork">--:--:--</time></div>
+        <div class="clock-city"><span>London</span><time id="clockLondon">--:--:--</time></div>
+        <div class="clock-city"><span>Dubai</span><time id="clockDubai">--:--:--</time></div>
+        <div class="clock-city"><span>Karachi</span><time id="clockKarachi">--:--:--</time></div>
+      </div>
+    </section>
+    <div class="cookie-layer" id="cookieBanner">
+      <aside class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookieTitle" aria-describedby="cookieDescription">
+        <strong id="cookieTitle">Cookie notice</strong>
+        <p id="cookieDescription">TimeZoney does not set cookies or save your converter choices. Google Fonts may receive basic connection data when the typeface loads.</p>
+        <div class="cookie-actions">
+          <a href="privacy.html">Privacy details</a>
+          <button id="dismissCookies" type="button">Got it</button>
+        </div>
+      </aside>
+    </div>
+    <header class="intro" id="converter">
+      <div class="intro-copy">
+        <p class="eyebrow">Built for global creators</p>
+        <h1>Time zone converter<br><em>for content creators.</em></h1>
+        <p class="lead">Convert the posting time in your audience’s country into your own local time. TimeZoney helps you plan YouTube, TikTok, Instagram and social media publishing across multiple countries.</p>
+      </div>
+      <aside class="hero-card" aria-label="TimeZoney publishing workflow">
+        <p class="hero-label">Target publishing time</p>
+        <p class="hero-time" id="heroTime">—</p>
+        <p class="hero-caption" id="heroCaption">Choose an audience date and time below</p>
+        <div class="route-line" aria-hidden="true"><span></span><i></i><strong>Convert</strong><i></i><span></span></div>
+        <div class="detected" aria-live="polite">
+          <span class="pulse" aria-hidden="true"></span>
+          <span id="detectedText">Detecting your timezone…</span>
+        </div>
+      </aside>
+    </header>
+
+    <div class="workspace">
+      <section class="panel" aria-label="Timezone conversion settings">
+        <h2 class="section-title"><span class="step">01</span> Set your primary audience time</h2>
+        <div class="fields">
+          <div class="field">
+            <label for="countrySearch">SEARCH COUNTRIES</label>
+            <div class="search-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="countrySearch" type="search" placeholder="Canada, United States, Japan…" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="80" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="country">PRIMARY TARGET COUNTRY</label>
+            <select id="country"></select>
+          </div>
+          <div class="field">
+            <label for="targetZone">CITY / TIMEZONE</label>
+            <select id="targetZone"></select>
+            <p class="hint" id="zoneHint">All available IANA timezone locations for this country appear here.</p>
+          </div>
+          <div class="split">
+            <div class="field">
+              <label for="targetDate">TARGET DATE</label>
+              <input id="targetDate" type="date" />
+            </div>
+            <div class="field">
+              <label for="targetTime">TARGET TIME</label>
+              <input id="targetTime" type="time" value="22:00" step="60" />
+            </div>
+          </div>
+          <div>
+            <p class="quick-label">QUICK TIME</p>
+            <div class="quick-times" aria-label="Quick target times">
+              <button class="time-chip" data-time="09:00" type="button">9 AM</button>
+              <button class="time-chip" data-time="12:00" type="button">12 PM</button>
+              <button class="time-chip" data-time="15:00" type="button">3 PM</button>
+              <button class="time-chip" data-time="18:00" type="button">6 PM</button>
+              <button class="time-chip" data-time="22:00" type="button" aria-pressed="true">10 PM</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <h2 class="section-title"><span class="step">02</span> Confirm your location</h2>
+        <div class="local-row">
+          <div class="local-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"/></svg>
+          </div>
+          <div class="local-copy">
+            <strong id="localPlace">Timezone auto-detected</strong>
+            <span>If this is wrong, choose your timezone below.</span>
+          </div>
+        </div>
+        <div class="field source-select">
+          <label for="sourceZone">YOUR TIMEZONE</label>
+          <select id="sourceZone"></select>
+        </div>
+
+        <div class="divider"></div>
+        <h2 class="section-title"><span class="step">03</span> Compare more audiences</h2>
+        <p class="hint">Add countries to see the same publishing moment in each local timezone.</p>
+        <div class="audience-builder">
+          <div class="field">
+            <label for="compareCountry">COUNTRY</label>
+            <select id="compareCountry"></select>
+          </div>
+          <div class="field">
+            <label for="compareZone">CITY / TIMEZONE</label>
+            <select id="compareZone"></select>
+          </div>
+          <button class="add-btn" id="addTarget" type="button">Add audience</button>
+        </div>
+        <div class="target-list" id="targetList" aria-live="polite"></div>
+      </section>
+
+      <aside class="result" aria-live="polite">
+        <div id="resultContent">
+          <div class="result-top">
+            <p class="result-kicker">SCHEDULE IN YOUR LOCAL TIME</p>
+            <p class="result-time" id="localTime">—</p>
+            <p class="result-date" id="localDate">Select a date</p>
+            <div class="conversion-arrow">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="currentColor" opacity=".5"/><path d="M10 16h12m-4-4 4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span id="targetSummary">Your target audience time will appear here.</span>
+            </div>
+          </div>
+          <div class="result-body">
+            <dl class="fact-list">
+              <div class="fact"><dt>Time difference</dt><dd id="difference">—</dd></div>
+              <div class="fact"><dt>Day relation</dt><dd id="dayRelation">—</dd></div>
+              <div class="fact"><dt>Target zone</dt><dd id="zoneAbbr">—</dd></div>
+            </dl>
+            <div class="copy-panel">
+              <p class="copy-title">Copy this schedule</p>
+              <button class="copy-btn" id="copyBtn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+                Copy schedule
+              </button>
+            </div>
+            <p class="dst-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5m0 3h.01"/></svg>
+              Daylight saving time can change an offset by season, so always choose the exact publishing date.
+            </p>
+          </div>
+        </div>
+        <div class="error" id="errorBox"><strong>This local time does not exist</strong><span id="errorText">Choose another time because the clock changes for daylight saving time.</span></div>
+      </aside>
+    </div>
+
+    <section class="creator-suite" id="creator-tools" aria-labelledby="creator-tools-title">
+      <div class="suite-heading">
+        <h2 id="creator-tools-title">Creator planning toolkit</h2>
+        <p>See when audiences are active, convert release plans into calendar tasks, and publish one clear time across every market.</p>
+      </div>
+      <div class="tool-grid">
+        <section class="tool-card wide" aria-labelledby="heatmap-title">
+          <div class="tool-head"><span class="tool-number">01</span><div><h3 id="heatmap-title">Audience “Sweet Spot” heatmap</h3><p>Move one local-time slider and compare sleeping, work, and peak browsing hours across your target regions.</p></div></div>
+          <div class="heat-controls">
+            <div class="field">
+              <label>TARGET REGIONS</label>
+              <div class="region-picks" id="heatRegionPicks" aria-label="Heatmap target regions">
+                <button class="region-pick" type="button" data-heat-zone="America/New_York" aria-pressed="true">USA Eastern</button>
+                <button class="region-pick" type="button" data-heat-zone="America/Los_Angeles" aria-pressed="true">USA Pacific</button>
+                <button class="region-pick" type="button" data-heat-zone="Europe/London" aria-pressed="true">United Kingdom</button>
+                <button class="region-pick" type="button" data-heat-zone="Asia/Dubai" aria-pressed="true">UAE</button>
+                <button class="region-pick" type="button" data-heat-zone="Asia/Karachi" aria-pressed="false">Pakistan</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="heatHour">YOUR LOCAL HOUR · <span id="heatHourLabel">12:00 PM</span></label>
+              <input class="time-slider" id="heatHour" type="range" min="0" max="23" step="1" value="12" />
+              <div class="slider-caption"><span>12 AM</span><span>12 PM</span><span>11 PM</span></div>
+            </div>
+          </div>
+          <div class="heat-legend" aria-label="Heatmap color legend">
+            <span><i class="legend-swatch sleep"></i>12–6 AM sleeping</span>
+            <span><i class="legend-swatch work"></i>9 AM–2 PM work / school</span>
+            <span><i class="legend-swatch peak"></i>5–10 PM peak</span>
+            <span><i class="legend-swatch steady"></i>Other awake hours</span>
+          </div>
+          <div class="heatmap" id="heatmap" aria-live="polite"></div>
+          <div class="heat-hours" aria-hidden="true"><span>12a</span><span>4a</span><span>8a</span><span>12p</span><span>4p</span><span>11p</span></div>
+          <div class="golden-window" id="goldenWindow"><strong>Finding today’s Golden Window…</strong><span>We compare New York and London activity in your timezone.</span></div>
+        </section>
+
+        <section class="tool-card" aria-labelledby="post-now-title">
+          <div class="tool-head"><span class="tool-number">02</span><div><h3 id="post-now-title">Should I post now?</h3><p>Check whether it is currently the evening test window in your audience’s country.</p></div></div>
+          <div class="compact-fields">
+            <div class="field"><label for="postCountry">AUDIENCE COUNTRY</label><select id="postCountry"></select></div>
+            <div class="field"><label for="postZone">CITY / TIMEZONE</label><select id="postZone"></select></div>
+          </div>
+          <div class="action-row"><button class="tool-action primary" id="checkPostNow" type="button">Check now</button></div>
+          <div class="decision-box neutral" id="postDecision" aria-live="polite">
+            <strong>Choose an audience and check</strong>
+            <span>We’ll compare their current local time with the 6–10 PM evening test window.</span>
+          </div>
+          <p class="status-line"><strong>YouTube:</strong> upload about 2 hours before your planned publish time so processing and indexing can finish. Your own channel analytics remain the best guide.</p>
+        </section>
+
+        <section class="tool-card" aria-labelledby="meeting-title">
+          <div class="tool-head"><span class="tool-number">03</span><div><h3 id="meeting-title">Meeting planner</h3><p>Enter your time and see the exact time for your client.</p></div></div>
+          <div class="compact-fields">
+            <div class="field"><label for="meetingDate">YOUR DATE</label><input id="meetingDate" type="date" /></div>
+            <div class="field"><label for="meetingTime">YOUR TIME</label><input id="meetingTime" type="time" step="60" /></div>
+            <div class="field"><label for="meetingSourceZone">YOUR TIMEZONE</label><select id="meetingSourceZone"></select></div>
+            <div class="field"><label for="meetingCountry">CLIENT COUNTRY</label><select id="meetingCountry"></select></div>
+            <div class="field full-field"><label for="meetingClientZone">CLIENT CITY / TIMEZONE</label><select id="meetingClientZone"></select></div>
+          </div>
+          <div class="action-row"><button class="tool-action primary" id="planMeeting" type="button">Convert meeting</button><button class="tool-action" id="copyMeeting" type="button">Copy details</button></div>
+          <div class="meeting-table" id="meetingTable" aria-live="polite">
+            <div><span>Your time</span><strong id="meetingYourResult">—</strong></div>
+            <div><span>Client time</span><strong id="meetingClientResult">—</strong></div>
+          </div>
+        </section>
+
+        <section class="tool-card wide" aria-labelledby="schedule-title">
+          <div class="tool-head"><span class="tool-number">04</span><div><h3 id="schedule-title">Smart schedule planner</h3><p>Set the audience release time, convert it locally, and download a three-step upload workflow for Google or Apple Calendar.</p></div></div>
+          <div class="compact-fields three">
+            <div class="field"><label for="scheduleDate">RELEASE DATE</label><input id="scheduleDate" type="date" /></div>
+            <div class="field"><label for="scheduleTime">RELEASE TIME</label><input id="scheduleTime" type="time" step="60" value="18:00" /></div>
+            <div class="field"><label for="scheduleZone">TARGET TIMEZONE</label><select id="scheduleZone"></select></div>
+          </div>
+          <div class="action-row"><button class="tool-action primary" id="buildQueue" type="button">Add to My Upload Queue</button><button class="tool-action" id="downloadIcs" type="button" disabled>Download .ics</button></div>
+          <div class="queue-preview" id="queuePreview" aria-live="polite" hidden>
+            <p class="queue-time" id="queueLocalTime"></p>
+            <ul class="queue-checklist" id="queueChecklist"></ul>
+            <p class="download-note">The .ics file contains all three reminders and can be imported into Google Calendar or Apple Calendar.</p>
+          </div>
+        </section>
+
+        <section class="tool-card" aria-labelledby="snippet-title">
+          <div class="tool-head"><span class="tool-number">05</span><div><h3 id="snippet-title">Premiere / live time snippet</h3><p>Generate clean description-ready timings for up to five audience regions.</p></div></div>
+          <div class="compact-fields">
+            <div class="field"><label for="snippetDate">EVENT DATE</label><input id="snippetDate" type="date" /></div>
+            <div class="field"><label for="snippetTime">EVENT TIME</label><input id="snippetTime" type="time" step="60" value="14:00" /></div>
+            <div class="field full-field"><label for="snippetZone">ANNOUNCED TIMEZONE</label><select id="snippetZone"></select></div>
+          </div>
+          <div class="field" style="margin-top:14px">
+            <label>SHOW 4–5 REGIONS</label>
+            <div class="snippet-picks" id="snippetPicks" aria-label="Snippet regions">
+              <button class="region-pick" type="button" data-snippet-zone="America/Los_Angeles" aria-pressed="true">Los Angeles</button>
+              <button class="region-pick" type="button" data-snippet-zone="America/New_York" aria-pressed="true">New York</button>
+              <button class="region-pick" type="button" data-snippet-zone="Europe/London" aria-pressed="true">London</button>
+              <button class="region-pick" type="button" data-snippet-zone="Asia/Dubai" aria-pressed="true">Dubai</button>
+              <button class="region-pick" type="button" data-snippet-zone="Asia/Karachi" aria-pressed="true">Pakistan</button>
+              <button class="region-pick" type="button" data-snippet-zone="Asia/Kolkata" aria-pressed="false">India</button>
+            </div>
+          </div>
+          <textarea class="snippet-output" id="snippetOutput" readonly aria-label="Generated premiere description snippet"></textarea>
+          <div class="action-row"><button class="tool-action primary" id="copySnippet" type="button">Copy Description Snippet</button></div>
+        </section>
+
+        <section class="tool-card countdown-card" aria-labelledby="countdown-title">
+          <div class="tool-head"><span class="tool-number">06</span><div><h3 id="countdown-title">Premiere &amp; live countdown</h3><p>Set the event in its announced timezone. The countdown and your own local start time stay visible together.</p></div></div>
+          <div class="compact-fields">
+            <div class="field"><label for="countdownDate">EVENT DATE</label><input id="countdownDate" type="date" /></div>
+            <div class="field"><label for="countdownTime">EVENT TIME</label><input id="countdownTime" type="time" step="60" /></div>
+            <div class="field full-field"><label for="countdownZone">EVENT TIMEZONE</label><select id="countdownZone"></select></div>
+          </div>
+          <div class="action-row"><button class="tool-action primary" id="startCountdown" type="button">Start countdown</button></div>
+          <div class="countdown-display" id="countdownDisplay" aria-live="polite">
+            <div class="countdown-value" id="countdownValue">00d 00h 00m 00s</div>
+            <p id="countdownLocalTime">Choose an event date, time, and timezone.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <article class="content-section" id="guide">
+      <h2>How to schedule content across time zones</h2>
+      <div class="article-grid">
+        <div class="article-copy">
+          <p>Global publishing gets easier when you plan around the audience’s wall-clock time instead of memorizing offsets. Choose the city that represents your audience, set the date and local publishing time, then use the converted result in your scheduler.</p>
+          <h3>A reliable three-step workflow</h3>
+          <ol>
+            <li><strong>Start with the audience.</strong> Select the target country and the city or timezone most relevant to your followers.</li>
+            <li><strong>Use the real publishing date.</strong> Offsets can change during the year because some places observe daylight saving time and others do not.</li>
+            <li><strong>Copy your local schedule.</strong> The result tells you when to schedule the post where you are. Add more audiences to compare the same moment worldwide.</li>
+          </ol>
+          <h3>Why a city-based timezone is better than a fixed UTC offset</h3>
+          <p>A label such as UTC−5 describes only an offset. An IANA timezone such as America/Toronto includes the location’s clock rules, including seasonal changes. That makes a dated conversion more dependable for advance planning.</p>
+          <h3>One launch or separate local campaigns?</h3>
+          <p>Use one converted moment when everyone should receive the same announcement together. For region-specific posts, repeat the conversion for each market’s preferred local hour and schedule separate releases.</p>
+        </div>
+        <aside class="guide-note">
+          <h3>Creator tip</h3>
+          <p>“Best posting time” depends on your own audience data. Use platform analytics to choose the target hour, then use this converter to translate that hour accurately across countries.</p>
+        </aside>
+      </div>
+    </article>
+
+    <section class="content-section" id="articles" aria-labelledby="articles-title">
+      <h2 id="articles-title">Timezone guides for YouTube, TikTok and social media</h2>
+      <p class="lead">Practical guides for creators who publish to audiences in different countries. Choose a topic or read all three.</p>
+
+      <nav class="topic-index" aria-label="Timezone article topics">
+        <button class="topic-link" type="button" data-scroll-target="social-media-timezone-converter">
+          <strong>Social media time zone converter guide</strong>
+          <span>Turn audience analytics into a reliable local publishing schedule.</span>
+          <b>Read guide →</b>
+        </button>
+        <button class="topic-link" type="button" data-scroll-target="youtube-tiktok-posting-times">
+          <strong>YouTube and TikTok posting across countries</strong>
+          <span>Plan one global release or separate local-time campaigns.</span>
+          <b>Read guide →</b>
+        </button>
+        <button class="topic-link" type="button" data-scroll-target="usa-canada-timezones">
+          <strong>USA and Canada time zone planning</strong>
+          <span>Choose the right city when a country spans several time zones.</span>
+          <b>Read guide →</b>
+        </button>
+      </nav>
+
+      <article class="seo-article" id="social-media-timezone-converter">
+        <header class="article-heading">
+          <h3>How to use a social media time zone converter</h3>
+          <p>Creator scheduling guide</p>
+        </header>
+        <div class="seo-body">
+          <h4>Start with your audience’s local time</h4>
+          <p>A social media time zone converter answers a simple question: “If my audience should receive this post at a specific local time, when should I schedule it where I live?” Start with the audience country, choose the city or IANA timezone that matches most of your viewers, and enter the date and time you want the post to appear there. TimeZoney then converts that moment into your own timezone.</p>
+          <p>This audience-first method is more reliable than adding or subtracting hours in your head. It also reduces mistakes when the publishing date falls near midnight or when daylight saving time changes the difference between two locations.</p>
+          <h4>Use analytics to choose the hour</h4>
+          <p>A timezone tool converts a chosen hour; it does not decide the best hour for your channel. Review the audience activity data in your social platform, identify the local hour you want to test, and then convert it. If your analytics show several strong markets, add those countries to the comparison list and check how the same publishing moment lands in each place.</p>
+          <h4>A repeatable international content scheduling workflow</h4>
+          <ol>
+            <li>Choose the audience country and the nearest relevant city.</li>
+            <li>Enter the exact future date so seasonal clock rules are included.</li>
+            <li>Copy the converted local date and time into your publishing calendar.</li>
+            <li>Compare additional markets before deciding between one global post and separate regional posts.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="seo-article" id="youtube-tiktok-posting-times">
+        <header class="article-heading">
+          <h3>YouTube, TikTok and Instagram posting times across countries</h3>
+          <p>Multi-platform planning</p>
+        </header>
+        <div class="seo-body">
+          <h4>Convert the audience time, not the platform</h4>
+          <p>The time conversion is the same whether you are preparing a YouTube upload, TikTok video, Instagram Reel, podcast episode or newsletter. What changes is the audience behavior you see in each platform’s analytics. Select the target local time for that audience, then use the converted result as the schedule time in your creator dashboard.</p>
+          <h4>One global launch versus local posting times</h4>
+          <p>Use one shared publishing moment for premieres, announcements and live launches that should happen everywhere at once. For evergreen posts, you may prefer separate local campaigns so each market receives the content during its own active hours. TimeZoney’s multi-country comparison helps you see whether one moment works for several regions or whether separate schedules would be clearer.</p>
+          <h4>Check the date as carefully as the hour</h4>
+          <p>A 10:00 PM target time may convert to the previous or next calendar day where you live. Always copy both the local date and time. For an important scheduled upload, confirm the timezone shown by the publishing platform before you finalize it.</p>
+        </div>
+      </article>
+
+      <article class="seo-article" id="usa-canada-timezones">
+        <header class="article-heading">
+          <h3>How to convert USA and Canada posting times</h3>
+          <p>Multiple time zone countries</p>
+        </header>
+        <div class="seo-body">
+          <h4>Country selection is only the first step</h4>
+          <p>The United States and Canada both span multiple time zones, so a country name alone is not precise enough. After choosing the country, select a city that represents the audience you want to reach—for example, Toronto or New York for Eastern Time, Winnipeg or Chicago for Central Time, Edmonton or Denver for Mountain Time, and Vancouver or Los Angeles for Pacific Time.</p>
+          <h4>Why city-based IANA timezones matter</h4>
+          <p>An IANA timezone stores the clock rules for a location. That is more useful for future content scheduling than a fixed label such as UTC−5, because the local offset may change during the year. Selecting <strong>America/Toronto</strong> or <strong>America/Los_Angeles</strong> lets the browser apply the rules for the date you entered.</p>
+          <h4>Compare coasts before publishing</h4>
+          <p>If your audience is spread across North America, set the primary market first and add other cities to the comparison list. You can then see the same release in Eastern, Central, Mountain and Pacific time without running separate mental calculations.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-section" id="faq">
+      <h2>Time zone converter FAQ</h2>
+      <div class="faq-list">
+        <details><summary>Does this converter account for daylight saving time?</summary><p>Yes. It uses the selected IANA timezone and the exact date, so seasonal clock rules are applied during conversion.</p></details>
+        <details><summary>Can one country have several time zones?</summary><p>Yes. Countries such as Canada, the United States, Australia, Brazil, and Russia span multiple time zones. Choose the city that best represents your audience.</p></details>
+        <details><summary>What does “compare more audiences” mean?</summary><p>Each added audience shows the same publishing instant in another city. It helps you check how a global release lands across regions.</p></details>
+        <details><summary>How do I convert a YouTube or TikTok posting time?</summary><p>Choose the country and city where your audience lives, enter the date and local posting time you want there, then use the converted date and time shown for your own timezone.</p></details>
+        <details><summary>Should I use UTC or a city timezone?</summary><p>Use a city-based IANA timezone for dated publishing plans. It can apply local daylight-saving rules, while a fixed UTC offset may not reflect seasonal clock changes.</p></details>
+        <details><summary>Is my location stored?</summary><p>No. Timezone detection and conversion happen in your browser for the current visit.</p></details>
+        <details><summary>How is my schedule protected?</summary><p>TimeZoney limits which code and external resources the browser may load, does not send conversion inputs to a server, and only opens a sharing service after you choose it. The browser referrer is also withheld from external links.</p></details>
+      </div>
+    </section>
+
+    <section class="policy-page" id="about" hidden aria-labelledby="about-title">
+      <a class="back-link" href="index.html" aria-label="Back to timezone converter">← Back to converter</a>
+      <h1 id="about-title">About TimeZoney</h1>
+      <p class="effective">A DigitalMax publishing tool for global creators</p>
+      <p>TimeZoney helps content creators translate an audience’s preferred posting time into the correct date and time where they live. It is designed for planning YouTube uploads, TikTok videos, Instagram posts, newsletters, premieres, and other international releases.</p>
+      <h2>Why it exists</h2>
+      <p>Countries can span several time zones, calendar dates can change during a conversion, and daylight-saving rules vary by location and season. TimeZoney keeps those details visible so creators can plan around a real city-based timezone instead of guessing from a fixed offset.</p>
+      <h2>How the tool works</h2>
+      <p>You choose the audience country, city, date, and local target time. The converter uses the timezone rules available in your browser to show the equivalent time in your own location. You can also compare the same publishing moment across additional countries.</p>
+      <h2>Who publishes TimeZoney</h2>
+      <p>TimeZoney is published by DigitalMax. The tool runs in your browser and is intended as a practical planning aid for creators working across borders.</p>
+    </section>
+
+    <section class="policy-page" id="contact" hidden aria-labelledby="contact-title">
+      <a class="back-link" href="index.html" aria-label="Back to timezone converter">← Back to converter</a>
+      <h1 id="contact-title">Contact</h1>
+      <p class="effective">Support and feedback for TimeZoney</p>
+      <p>Have a question, spotted a conversion issue, or want to suggest an improvement? Send DigitalMax a message below.</p>
+      <form class="contact-form" action="https://formsubmit.co/saqlainwork21@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New TimeZoney message" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+        <div class="split">
+          <div class="field"><label for="contactName">NAME</label><input id="contactName" name="name" type="text" maxlength="80" required /></div>
+          <div class="field"><label for="contactEmail">EMAIL</label><input id="contactEmail" name="email" type="email" maxlength="160" required /></div>
+        </div>
+        <div class="field"><label for="contactMessage">MESSAGE</label><textarea id="contactMessage" name="message" maxlength="3000" required></textarea></div>
+        <button class="contact-submit" type="submit">Send message</button>
+        <p class="contact-note">Your message is delivered by FormSubmit to DigitalMax.</p>
+      </form>
+    </section>
+
+    <section class="policy-page" id="disclaimer" hidden aria-labelledby="disclaimer-title">
+      <a class="back-link" href="index.html" aria-label="Back to timezone converter">← Back to converter</a>
+      <h1 id="disclaimer-title">Disclaimer</h1>
+      <p class="effective">Effective September 19, 2026</p>
+      <p>TimeZoney provides timezone conversions and publishing guidance for general informational and planning purposes.</p>
+      <h2>No guarantee of platform scheduling</h2>
+      <p>The tool does not connect to, control, or publish content on YouTube, TikTok, Instagram, or any other platform. A converted time must still be entered and confirmed in the relevant platform or scheduling service.</p>
+      <h2>Timezone accuracy</h2>
+      <p>Conversions rely on the timezone data and clock rules available in the visitor’s browser. Governments may change timezone or daylight-saving rules, and devices may not always receive those updates immediately. Verify important launches in the destination platform before publishing.</p>
+      <h2>Creator guidance</h2>
+      <p>References to audience activity and posting times are general guidance, not a promise of reach, engagement, revenue, or performance. Use your own channel analytics and testing to choose the best publishing hour.</p>
+      <h2>Limitation of use</h2>
+      <p>Do not use TimeZoney as the sole timing source for legal deadlines, financial transactions, medical activity, travel, emergencies, or other safety-critical decisions.</p>
+    </section>
+
+    <section class="policy-page" id="privacy-policy" hidden aria-labelledby="privacy-title">
+      <a class="back-link" href="index.html" aria-label="Back to timezone converter">← Back to converter</a>
+      <h1 id="privacy-title">Privacy Policy</h1>
+      <p class="effective">Effective September 19, 2026</p>
+      <p>This policy explains what information TimeZoney handles when you use the tool.</p>
+      <h2>Information used by the converter</h2>
+      <p>The converter reads the timezone reported by your browser so it can show publishing times in your local timezone. It also processes the countries, cities, dates, and times you select. It does not request your precise GPS location, name, account details, or personal profile information.</p>
+      <h2>Storage and processing</h2>
+      <p>Timezone calculations happen in your browser. Your selections and comparison list remain in memory for the current visit and are not saved by this page after you leave or refresh it.</p>
+      <h2>Clipboard</h2>
+      <p>The tool accesses your clipboard only after you press <strong>Copy schedule</strong>.</p>
+      <h2>Contact form</h2>
+      <p>If you email DigitalMax, your email provider processes the message under its own privacy practices. Do not include passwords or other sensitive information in your message.</p>
+      <h2>Security safeguards</h2>
+      <p>TimeZoney uses a restrictive Content Security Policy to limit executable code, block embedded objects and frames, and disallow background network requests. Contact messages open as drafts in the visitor’s email app. User-entered search text is handled as plain text, date and time values are validated before conversion, .</p>
+      <p>These controls reduce the risk of injected scripts, hidden data transfers, unsafe embeds, and accidental referrer disclosure. No client-side safeguard can replace secure hosting, so the hosting account should still use HTTPS, strong access controls, and timely platform updates.</p>
+      <h2>Cookies and similar technologies</h2>
+      <p>TimeZoney does not set first-party cookies or use browser storage to remember your converter inputs or cookie-notice choice. The cookie notice can be dismissed for the current page visit, but it may appear again after you reload or return.</p>
+      <h2>Third-party resources</h2>
+      <p>The interface loads typefaces from Google Fonts. That request can share basic connection information, such as an IP address and browser details, with Google. The Content Security Policy permits the font connection and blocks unlisted content sources. Google’s handling of the request is governed by its own policies.</p>
+      <h2>Changes to this policy</h2>
+      <p>This policy may be updated if the tool’s features or data practices change. The effective date above identifies the current version.</p>
+    </section>
+
+    <section class="policy-page" id="terms-of-use" hidden aria-labelledby="terms-title">
+      <a class="back-link" href="index.html" aria-label="Back to timezone converter">← Back to converter</a>
+      <h1 id="terms-title">Terms of Use</h1>
+      <p class="effective">Effective September 19, 2026</p>
+      <p>By using TimeZoney, you agree to these terms.</p>
+      <h2>Planning tool</h2>
+      <p>The converter is provided as a planning aid for content publishing. It is not a scheduling service and does not publish posts or change settings on any social platform.</p>
+      <h2>Accuracy and timezone changes</h2>
+      <p>Conversions use the timezone rules available in your browser for the date you select. Governments and standards bodies may change those rules. Check important launch times in your publishing platform before scheduling.</p>
+      <h2>Your responsibility</h2>
+      <p>You are responsible for choosing the correct target city, date, time, and publishing platform settings. Do not rely on this tool as the sole timing source for safety-critical, legal, financial, medical, or emergency activity.</p>
+      <h2>Availability</h2>
+      <p>The tool is provided without a guarantee of uninterrupted availability or error-free conversion. Features may be updated or withdrawn, and these terms may be revised when the tool changes.</p>
+    </section>
+
+    <footer class="site-footer">
+      <span><strong>TimeZoney</strong> · &copy; 2026 DigitalMax. All rights reserved.</span>
+      <span><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="disclaimer.html">Disclaimer</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+    </footer>
+  </main>
+  <div class="toast" id="toast" role="status">Schedule copied</div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "TimeZoney",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript and Intl timezone support",
+        "description": "A time zone converter for content creators planning YouTube, TikTok, Instagram and social media publishing across multiple countries.",
+        "creator": {"@type":"Organization","name":"DigitalMax"}
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to convert a target audience posting time into your local time",
+        "description": "Choose an audience country and city, enter the intended local publishing date and time, then copy the converted schedule for your own timezone.",
+        "step": [
+          {"@type":"HowToStep","name":"Choose the audience","text":"Select the target country and the city or IANA timezone that represents your audience."},
+          {"@type":"HowToStep","name":"Set the publishing time","text":"Enter the exact date and local time when the audience should receive the content."},
+          {"@type":"HowToStep","name":"Use your local schedule","text":"Copy the converted date and time into your publishing calendar or creator dashboard."}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"Does this converter account for daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"Yes. It uses the selected IANA timezone and exact date, so seasonal clock rules are applied during conversion."}},
+          {"@type":"Question","name":"Can one country have several time zones?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select the city or IANA timezone that best represents your audience."}},
+          {"@type":"Question","name":"What does compare more audiences mean?","acceptedAnswer":{"@type":"Answer","text":"Each added audience shows the same publishing instant in another city."}},
+          {"@type":"Question","name":"How do I convert a YouTube or TikTok posting time?","acceptedAnswer":{"@type":"Answer","text":"Choose the country and city where your audience lives, enter the date and local posting time you want there, then use the converted date and time shown for your own timezone."}},
+          {"@type":"Question","name":"Should I use UTC or a city timezone?","acceptedAnswer":{"@type":"Answer","text":"Use a city-based IANA timezone for dated publishing plans because it can apply local daylight-saving rules."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script>
+    const TZDATA = "AD|Europe/Andorra;AE|Asia/Dubai;AF|Asia/Kabul;AG|America/Antigua;AI|America/Anguilla;AL|Europe/Tirane;AM|Asia/Yerevan;AO|Africa/Luanda;AQ|Antarctica/McMurdo;AQ|Antarctica/Casey;AQ|Antarctica/Davis;AQ|Antarctica/DumontDUrville;AQ|Antarctica/Mawson;AQ|Antarctica/Palmer;AQ|Antarctica/Rothera;AQ|Antarctica/Syowa;AQ|Antarctica/Troll;AQ|Antarctica/Vostok;AR|America/Argentina/Buenos_Aires;AR|America/Argentina/Cordoba;AR|America/Argentina/Salta;AR|America/Argentina/Jujuy;AR|America/Argentina/Tucuman;AR|America/Argentina/Catamarca;AR|America/Argentina/La_Rioja;AR|America/Argentina/San_Juan;AR|America/Argentina/Mendoza;AR|America/Argentina/San_Luis;AR|America/Argentina/Rio_Gallegos;AR|America/Argentina/Ushuaia;AS|Pacific/Pago_Pago;AT|Europe/Vienna;AU|Australia/Lord_Howe;AU|Antarctica/Macquarie;AU|Australia/Hobart;AU|Australia/Melbourne;AU|Australia/Sydney;AU|Australia/Broken_Hill;AU|Australia/Brisbane;AU|Australia/Lindeman;AU|Australia/Adelaide;AU|Australia/Darwin;AU|Australia/Perth;AU|Australia/Eucla;AW|America/Aruba;AX|Europe/Mariehamn;AZ|Asia/Baku;BA|Europe/Sarajevo;BB|America/Barbados;BD|Asia/Dhaka;BE|Europe/Brussels;BF|Africa/Ouagadougou;BG|Europe/Sofia;BH|Asia/Bahrain;BI|Africa/Bujumbura;BJ|Africa/Porto-Novo;BL|America/St_Barthelemy;BM|Atlantic/Bermuda;BN|Asia/Brunei;BO|America/La_Paz;BQ|America/Kralendijk;BR|America/Noronha;BR|America/Belem;BR|America/Fortaleza;BR|America/Recife;BR|America/Araguaina;BR|America/Maceio;BR|America/Bahia;BR|America/Sao_Paulo;BR|America/Campo_Grande;BR|America/Cuiaba;BR|America/Santarem;BR|America/Porto_Velho;BR|America/Boa_Vista;BR|America/Manaus;BR|America/Eirunepe;BR|America/Rio_Branco;BS|America/Nassau;BT|Asia/Thimphu;BW|Africa/Gaborone;BY|Europe/Minsk;BZ|America/Belize;CA|America/St_Johns;CA|America/Halifax;CA|America/Glace_Bay;CA|America/Moncton;CA|America/Goose_Bay;CA|America/Blanc-Sablon;CA|America/Toronto;CA|America/Iqaluit;CA|America/Atikokan;CA|America/Winnipeg;CA|America/Resolute;CA|America/Rankin_Inlet;CA|America/Regina;CA|America/Swift_Current;CA|America/Edmonton;CA|America/Cambridge_Bay;CA|America/Inuvik;CA|America/Vancouver;CA|America/Creston;CA|America/Dawson_Creek;CA|America/Fort_Nelson;CA|America/Whitehorse;CA|America/Dawson;CC|Indian/Cocos;CD|Africa/Kinshasa;CD|Africa/Lubumbashi;CF|Africa/Bangui;CG|Africa/Brazzaville;CH|Europe/Zurich;CI|Africa/Abidjan;CK|Pacific/Rarotonga;CL|America/Santiago;CL|America/Coyhaique;CL|America/Punta_Arenas;CL|Pacific/Easter;CM|Africa/Douala;CN|Asia/Shanghai;CN|Asia/Urumqi;CO|America/Bogota;CR|America/Costa_Rica;CU|America/Havana;CV|Atlantic/Cape_Verde;CW|America/Curacao;CX|Indian/Christmas;CY|Asia/Nicosia;CY|Asia/Famagusta;CZ|Europe/Prague;DE|Europe/Berlin;DE|Europe/Busingen;DJ|Africa/Djibouti;DK|Europe/Copenhagen;DM|America/Dominica;DO|America/Santo_Domingo;DZ|Africa/Algiers;EC|America/Guayaquil;EC|Pacific/Galapagos;EE|Europe/Tallinn;EG|Africa/Cairo;EH|Africa/El_Aaiun;ER|Africa/Asmara;ES|Europe/Madrid;ES|Africa/Ceuta;ES|Atlantic/Canary;ET|Africa/Addis_Ababa;FI|Europe/Helsinki;FJ|Pacific/Fiji;FK|Atlantic/Stanley;FM|Pacific/Chuuk;FM|Pacific/Pohnpei;FM|Pacific/Kosrae;FO|Atlantic/Faroe;FR|Europe/Paris;GA|Africa/Libreville;GB|Europe/London;GD|America/Grenada;GE|Asia/Tbilisi;GF|America/Cayenne;GG|Europe/Guernsey;GH|Africa/Accra;GI|Europe/Gibraltar;GL|America/Nuuk;GL|America/Danmarkshavn;GL|America/Scoresbysund;GL|America/Thule;GM|Africa/Banjul;GN|Africa/Conakry;GP|America/Guadeloupe;GQ|Africa/Malabo;GR|Europe/Athens;GS|Atlantic/South_Georgia;GT|America/Guatemala;GU|Pacific/Guam;GW|Africa/Bissau;GY|America/Guyana;HK|Asia/Hong_Kong;HN|America/Tegucigalpa;HR|Europe/Zagreb;HT|America/Port-au-Prince;HU|Europe/Budapest;ID|Asia/Jakarta;ID|Asia/Pontianak;ID|Asia/Makassar;ID|Asia/Jayapura;IE|Europe/Dublin;IL|Asia/Jerusalem;IM|Europe/Isle_of_Man;IN|Asia/Kolkata;IO|Indian/Chagos;IQ|Asia/Baghdad;IR|Asia/Tehran;IS|Atlantic/Reykjavik;IT|Europe/Rome;JE|Europe/Jersey;JM|America/Jamaica;JO|Asia/Amman;JP|Asia/Tokyo;KE|Africa/Nairobi;KG|Asia/Bishkek;KH|Asia/Phnom_Penh;KI|Pacific/Tarawa;KI|Pacific/Kanton;KI|Pacific/Kiritimati;KM|Indian/Comoro;KN|America/St_Kitts;KP|Asia/Pyongyang;KR|Asia/Seoul;KW|Asia/Kuwait;KY|America/Cayman;KZ|Asia/Almaty;KZ|Asia/Qyzylorda;KZ|Asia/Qostanay;KZ|Asia/Aqtobe;KZ|Asia/Aqtau;KZ|Asia/Atyrau;KZ|Asia/Oral;LA|Asia/Vientiane;LB|Asia/Beirut;LC|America/St_Lucia;LI|Europe/Vaduz;LK|Asia/Colombo;LR|Africa/Monrovia;LS|Africa/Maseru;LT|Europe/Vilnius;LU|Europe/Luxembourg;LV|Europe/Riga;LY|Africa/Tripoli;MA|Africa/Casablanca;MC|Europe/Monaco;MD|Europe/Chisinau;ME|Europe/Podgorica;MF|America/Marigot;MG|Indian/Antananarivo;MH|Pacific/Majuro;MH|Pacific/Kwajalein;MK|Europe/Skopje;ML|Africa/Bamako;MM|Asia/Yangon;MN|Asia/Ulaanbaatar;MN|Asia/Hovd;MO|Asia/Macau;MP|Pacific/Saipan;MQ|America/Martinique;MR|Africa/Nouakchott;MS|America/Montserrat;MT|Europe/Malta;MU|Indian/Mauritius;MV|Indian/Maldives;MW|Africa/Blantyre;MX|America/Mexico_City;MX|America/Cancun;MX|America/Merida;MX|America/Monterrey;MX|America/Matamoros;MX|America/Chihuahua;MX|America/Ciudad_Juarez;MX|America/Ojinaga;MX|America/Mazatlan;MX|America/Bahia_Banderas;MX|America/Hermosillo;MX|America/Tijuana;MY|Asia/Kuala_Lumpur;MY|Asia/Kuching;MZ|Africa/Maputo;NA|Africa/Windhoek;NC|Pacific/Noumea;NE|Africa/Niamey;NF|Pacific/Norfolk;NG|Africa/Lagos;NI|America/Managua;NL|Europe/Amsterdam;NO|Europe/Oslo;NP|Asia/Kathmandu;NR|Pacific/Nauru;NU|Pacific/Niue;NZ|Pacific/Auckland;NZ|Pacific/Chatham;OM|Asia/Muscat;PA|America/Panama;PE|America/Lima;PF|Pacific/Tahiti;PF|Pacific/Marquesas;PF|Pacific/Gambier;PG|Pacific/Port_Moresby;PG|Pacific/Bougainville;PH|Asia/Manila;PK|Asia/Karachi;PL|Europe/Warsaw;PM|America/Miquelon;PN|Pacific/Pitcairn;PR|America/Puerto_Rico;PS|Asia/Gaza;PS|Asia/Hebron;PT|Europe/Lisbon;PT|Atlantic/Madeira;PT|Atlantic/Azores;PW|Pacific/Palau;PY|America/Asuncion;QA|Asia/Qatar;RE|Indian/Reunion;RO|Europe/Bucharest;RS|Europe/Belgrade;RU|Europe/Kaliningrad;RU|Europe/Moscow;UA|Europe/Simferopol;RU|Europe/Kirov;RU|Europe/Volgograd;RU|Europe/Astrakhan;RU|Europe/Saratov;RU|Europe/Ulyanovsk;RU|Europe/Samara;RU|Asia/Yekaterinburg;RU|Asia/Omsk;RU|Asia/Novosibirsk;RU|Asia/Barnaul;RU|Asia/Tomsk;RU|Asia/Novokuznetsk;RU|Asia/Krasnoyarsk;RU|Asia/Irkutsk;RU|Asia/Chita;RU|Asia/Yakutsk;RU|Asia/Khandyga;RU|Asia/Vladivostok;RU|Asia/Ust-Nera;RU|Asia/Magadan;RU|Asia/Sakhalin;RU|Asia/Srednekolymsk;RU|Asia/Kamchatka;RU|Asia/Anadyr;RW|Africa/Kigali;SA|Asia/Riyadh;SB|Pacific/Guadalcanal;SC|Indian/Mahe;SD|Africa/Khartoum;SE|Europe/Stockholm;SG|Asia/Singapore;SH|Atlantic/St_Helena;SI|Europe/Ljubljana;SJ|Arctic/Longyearbyen;SK|Europe/Bratislava;SL|Africa/Freetown;SM|Europe/San_Marino;SN|Africa/Dakar;SO|Africa/Mogadishu;SR|America/Paramaribo;SS|Africa/Juba;ST|Africa/Sao_Tome;SV|America/El_Salvador;SX|America/Lower_Princes;SY|Asia/Damascus;SZ|Africa/Mbabane;TC|America/Grand_Turk;TD|Africa/Ndjamena;TF|Indian/Kerguelen;TG|Africa/Lome;TH|Asia/Bangkok;TJ|Asia/Dushanbe;TK|Pacific/Fakaofo;TL|Asia/Dili;TM|Asia/Ashgabat;TN|Africa/Tunis;TO|Pacific/Tongatapu;TR|Europe/Istanbul;TT|America/Port_of_Spain;TV|Pacific/Funafuti;TW|Asia/Taipei;TZ|Africa/Dar_es_Salaam;UA|Europe/Kyiv;UG|Africa/Kampala;UM|Pacific/Midway;UM|Pacific/Wake;US|America/New_York;US|America/Detroit;US|America/Kentucky/Louisville;US|America/Kentucky/Monticello;US|America/Indiana/Indianapolis;US|America/Indiana/Vincennes;US|America/Indiana/Winamac;US|America/Indiana/Marengo;US|America/Indiana/Petersburg;US|America/Indiana/Vevay;US|America/Chicago;US|America/Indiana/Tell_City;US|America/Indiana/Knox;US|America/Menominee;US|America/North_Dakota/Center;US|America/North_Dakota/New_Salem;US|America/North_Dakota/Beulah;US|America/Denver;US|America/Boise;US|America/Phoenix;US|America/Los_Angeles;US|America/Anchorage;US|America/Juneau;US|America/Sitka;US|America/Metlakatla;US|America/Yakutat;US|America/Nome;US|America/Adak;US|Pacific/Honolulu;UY|America/Montevideo;UZ|Asia/Samarkand;UZ|Asia/Tashkent;VA|Europe/Vatican;VC|America/St_Vincent;VE|America/Caracas;VG|America/Tortola;VI|America/St_Thomas;VN|Asia/Ho_Chi_Minh;VU|Pacific/Efate;WF|Pacific/Wallis;WS|Pacific/Apia;YE|Asia/Aden;YT|Indian/Mayotte;ZA|Africa/Johannesburg;ZM|Africa/Lusaka;ZW|Africa/Harare";
+    const COUNTRY_ZONES = {};
+    TZDATA.split(';').forEach(row => {
+      const i = row.indexOf('|');
+      const code = row.slice(0, i), zone = row.slice(i + 1);
+      (COUNTRY_ZONES[code] ||= []).push(zone);
+    });
+
+    const els = {
+      countrySearch: document.getElementById('countrySearch'),
+      country: document.getElementById('country'),
+      targetZone: document.getElementById('targetZone'),
+      targetDate: document.getElementById('targetDate'),
+      targetTime: document.getElementById('targetTime'),
+      sourceZone: document.getElementById('sourceZone'),
+      compareCountry: document.getElementById('compareCountry'),
+      compareZone: document.getElementById('compareZone'),
+      addTarget: document.getElementById('addTarget'),
+      targetList: document.getElementById('targetList'),
+      detectedText: document.getElementById('detectedText'),
+      heroTime: document.getElementById('heroTime'),
+      heroCaption: document.getElementById('heroCaption'),
+      localPlace: document.getElementById('localPlace'),
+      localTime: document.getElementById('localTime'),
+      localDate: document.getElementById('localDate'),
+      targetSummary: document.getElementById('targetSummary'),
+      difference: document.getElementById('difference'),
+      dayRelation: document.getElementById('dayRelation'),
+      zoneAbbr: document.getElementById('zoneAbbr'),
+      copyBtn: document.getElementById('copyBtn'),
+      resultContent: document.getElementById('resultContent'),
+      errorBox: document.getElementById('errorBox'),
+      errorText: document.getElementById('errorText'),
+      toast: document.getElementById('toast'),
+      cookieBanner: document.getElementById('cookieBanner'),
+      dismissCookies: document.getElementById('dismissCookies')
+    };
+
+    const regionNames = typeof Intl.DisplayNames === 'function'
+      ? new Intl.DisplayNames(['en'], { type: 'region' })
+      : null;
+    const countries = Object.keys(COUNTRY_ZONES).map(code => ({
+      code,
+      name: regionNames ? regionNames.of(code) : code
+    })).sort((a, b) => a.name.localeCompare(b.name));
+
+    const zoneToCountries = {};
+    for (const [code, zones] of Object.entries(COUNTRY_ZONES)) {
+      for (const zone of zones) (zoneToCountries[zone] ||= []).push(code);
+    }
+    const aliases = {
+      'Asia/Calcutta': 'Asia/Kolkata', 'Asia/Katmandu': 'Asia/Kathmandu',
+      'Europe/Kiev': 'Europe/Kyiv', 'America/Godthab': 'America/Nuuk'
+    };
+
+    function cityName(zone) {
+      return zone.split('/').pop().replaceAll('_', ' ').replace('Port-au-Prince', 'Port-au-Prince');
+    }
+    function countryName(code) {
+      const item = countries.find(c => c.code === code);
+      return item ? item.name : code;
+    }
+    function canonicalZone(zone) { return aliases[zone] || zone; }
+    function allZones() {
+      return [...new Set(Object.values(COUNTRY_ZONES).flat())].sort((a, b) => cityName(a).localeCompare(cityName(b)));
+    }
+    function fillCountries(query = '') {
+      const current = els.country.value;
+      const q = query.trim().toLowerCase();
+      const list = countries.filter(c => !q || c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q));
+      els.country.replaceChildren(...list.map(c => new Option(c.name, c.code)));
+      if (list.some(c => c.code === current)) els.country.value = current;
+      else if (list.length) els.country.value = list[0].code;
+      if (q && list.length === 0) els.country.add(new Option('No country found', '', true, true));
+    }
+    function fillTargetZones(preferred) {
+      const code = els.country.value;
+      const zones = COUNTRY_ZONES[code] || [];
+      els.targetZone.replaceChildren(...zones.map(zone => new Option(`${cityName(zone)}  —  ${zone}`, zone)));
+      if (preferred && zones.includes(preferred)) els.targetZone.value = preferred;
+      updateTargetDateForZone(false);
+      convert();
+    }
+    function fillCompareCountries() {
+      els.compareCountry.replaceChildren(...countries.map(c => new Option(c.name, c.code)));
+      els.compareCountry.value = 'US';
+      fillCompareZones();
+    }
+    function fillCompareZones(preferred) {
+      const zones = COUNTRY_ZONES[els.compareCountry.value] || [];
+      els.compareZone.replaceChildren(...zones.map(zone => new Option(`${cityName(zone)}  —  ${zone}`, zone)));
+      if (preferred && zones.includes(preferred)) els.compareZone.value = preferred;
+    }
+    function fillSourceZones(detected) {
+      const zones = allZones();
+      if (detected && !zones.includes(detected)) zones.push(detected);
+      zones.sort((a, b) => cityName(a).localeCompare(cityName(b)));
+      els.sourceZone.replaceChildren(...zones.map(zone => new Option(`${cityName(zone)}  —  ${zone}`, zone)));
+      els.sourceZone.value = detected;
+    }
+    function parts(date, timeZone) {
+      const values = {};
+      const fmt = new Intl.DateTimeFormat('en-CA', {
+        timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+      });
+      fmt.formatToParts(date).forEach(p => { if (p.type !== 'literal') values[p.type] = Number(p.value); });
+      return values;
+    }
+    function isoInZone(date, zone) {
+      const p = parts(date, zone);
+      return `${p.year}-${String(p.month).padStart(2,'0')}-${String(p.day).padStart(2,'0')}`;
+    }
+    function updateTargetDateForZone(force) {
+      if (!force && els.targetDate.value) return;
+      try { els.targetDate.value = isoInZone(new Date(), els.targetZone.value || 'UTC'); }
+      catch { els.targetDate.value = new Date().toISOString().slice(0, 10); }
+    }
+    function isValidDateInput(value) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+      const [year, month, day] = value.split('-').map(Number);
+      const check = new Date(Date.UTC(year, month - 1, day));
+      return year >= 1970 && year <= 2100 && check.getUTCFullYear() === year && check.getUTCMonth() === month - 1 && check.getUTCDate() === day;
+    }
+    function isValidTimeInput(value) {
+      if (!/^\d{2}:\d{2}$/.test(value)) return false;
+      const [hour, minute] = value.split(':').map(Number);
+      return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
+    }
+    function isAllowedZone(zone) {
+      if (zone === 'UTC') return true;
+      try {
+        new Intl.DateTimeFormat('en', { timeZone: zone });
+        return allZones().includes(zone) || zone === detected;
+      } catch { return false; }
+    }
+    function wallTimeToInstant(dateString, timeString, zone) {
+      if (!isValidDateInput(dateString) || !isValidTimeInput(timeString) || !isAllowedZone(zone)) return null;
+      const [year, month, day] = dateString.split('-').map(Number);
+      const [hour, minute] = timeString.split(':').map(Number);
+      const naive = Date.UTC(year, month - 1, day, hour, minute, 0);
+      const matches = [];
+      for (let offset = -14 * 60; offset <= 14 * 60; offset += 15) {
+        const candidate = new Date(naive - offset * 60000);
+        const p = parts(candidate, zone);
+        if (p.year === year && p.month === month && p.day === day && p.hour === hour && p.minute === minute) matches.push(candidate);
+      }
+      return matches[0] || null;
+    }
+    function formatTime(date, zone) {
+      return new Intl.DateTimeFormat('en', { timeZone: zone, hour: 'numeric', minute: '2-digit', hour12: true }).format(date);
+    }
+    function formatDate(date, zone) {
+      return new Intl.DateTimeFormat('en', { timeZone: zone, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+    }
+    function shortZone(date, zone) {
+      const p = new Intl.DateTimeFormat('en', { timeZone: zone, timeZoneName: 'short' }).formatToParts(date);
+      return p.find(x => x.type === 'timeZoneName')?.value || zone;
+    }
+    function offsetMinutes(date, zone) {
+      const p = parts(date, zone);
+      return Math.round((Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second) - date.getTime()) / 60000);
+    }
+    function prettyDuration(minutes) {
+      const abs = Math.abs(minutes);
+      const h = Math.floor(abs / 60), m = abs % 60;
+      return `${h ? `${h} hr` : ''}${h && m ? ' ' : ''}${m ? `${m} min` : ''}` || '0 min';
+    }
+    function dateDelta(localIso, targetIso) {
+      const [ly,lm,ld] = localIso.split('-').map(Number);
+      const [ty,tm,td] = targetIso.split('-').map(Number);
+      return Math.round((Date.UTC(ly,lm-1,ld) - Date.UTC(ty,tm-1,td)) / 86400000);
+    }
+    function showToast(message) {
+      els.toast.textContent = message;
+      els.toast.classList.add('show');
+      setTimeout(() => els.toast.classList.remove('show'), 1800);
+    }
+
+    let copyText = '';
+    let lastInstant = null;
+    const extraTargets = [];
+    function renderTargets() {
+      els.targetList.replaceChildren(...extraTargets.map((target, index) => {
+        const card = document.createElement('div');
+        card.className = 'target-card';
+        const copy = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = `${countryName(target.code)} · ${cityName(target.zone)}`;
+        const subtitle = document.createElement('span');
+        subtitle.textContent = target.zone;
+        copy.append(title, subtitle);
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'remove-target';
+        remove.setAttribute('aria-label', `Remove ${countryName(target.code)}`);
+        remove.textContent = '×';
+        remove.addEventListener('click', () => { extraTargets.splice(index, 1); renderTargets(); });
+        const time = document.createElement('time');
+        time.textContent = lastInstant ? `${formatTime(lastInstant, target.zone)} · ${formatDate(lastInstant, target.zone)}` : 'Choose a primary date and time';
+        card.append(copy, remove, time);
+        return card;
+      }));
+    }
+    function addTarget() {
+      const code = els.compareCountry.value;
+      const zone = els.compareZone.value;
+      if (!code || !zone) return;
+      if (!extraTargets.some(item => item.zone === zone)) extraTargets.push({ code, zone });
+      renderTargets();
+    }
+    function convert() {
+      const targetZone = els.targetZone.value;
+      const sourceZone = els.sourceZone.value;
+      if (!targetZone || !sourceZone || !els.targetDate.value || !els.targetTime.value) return;
+      const instant = wallTimeToInstant(els.targetDate.value, els.targetTime.value, targetZone);
+      if (!instant) {
+        lastInstant = null;
+        renderTargets();
+        els.resultContent.style.display = 'none';
+        els.errorBox.style.display = 'block';
+        els.errorText.textContent = 'This clock time is skipped in the selected timezone because of a daylight-saving transition. Choose another time.';
+        return;
+      }
+      lastInstant = instant;
+      els.resultContent.style.display = 'block';
+      els.errorBox.style.display = 'none';
+      const targetCountry = countryName(els.country.value);
+      const targetCity = cityName(targetZone);
+      const localTime = formatTime(instant, sourceZone);
+      const localDate = formatDate(instant, sourceZone);
+      const targetTime = formatTime(instant, targetZone);
+      const targetDate = formatDate(instant, targetZone);
+      const diff = offsetMinutes(instant, sourceZone) - offsetMinutes(instant, targetZone);
+      const localIso = isoInZone(instant, sourceZone), targetIso = isoInZone(instant, targetZone);
+      const dayDiff = dateDelta(localIso, targetIso);
+
+      els.heroTime.textContent = targetTime;
+      els.heroCaption.textContent = `${targetCity}, ${targetCountry} · ${targetDate}`;
+      els.localTime.textContent = localTime;
+      els.localDate.textContent = localDate;
+      els.targetSummary.textContent = `${targetCountry} · ${targetCity}: ${targetTime}, ${targetDate}`;
+      els.difference.textContent = diff === 0 ? 'Same time' : `You are ${prettyDuration(diff)} ${diff > 0 ? 'ahead' : 'behind'}`;
+      els.dayRelation.textContent = dayDiff === 0 ? 'Same calendar day' : dayDiff === 1 ? 'Next day for you' : dayDiff === -1 ? 'Previous day for you' : `${Math.abs(dayDiff)} days ${dayDiff > 0 ? 'later' : 'earlier'}`;
+      els.zoneAbbr.textContent = `${shortZone(instant, targetZone)} · ${targetZone}`;
+      copyText = `Schedule: ${localTime}, ${localDate} (${sourceZone})\nTarget: ${targetTime}, ${targetDate} in ${targetCity}, ${targetCountry} (${targetZone})`;
+      renderTargets();
+      updateQuickState();
+    }
+    function updateQuickState() {
+      document.querySelectorAll('.time-chip').forEach(btn => btn.setAttribute('aria-pressed', btn.dataset.time === els.targetTime.value ? 'true' : 'false'));
+    }
+    function updateSourceLabel(zone, fromBrowser = false) {
+      els.detectedText.textContent = `${fromBrowser ? 'Browser timezone' : 'Using timezone'}: ${zone}`;
+      els.localPlace.textContent = zone;
+    }
+
+    let detectedRaw = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    let detected = canonicalZone(detectedRaw);
+    try { new Intl.DateTimeFormat('en', { timeZone: detected }); }
+    catch { detected = 'UTC'; }
+    fillCountries();
+    els.country.value = 'CA';
+    fillSourceZones(detected);
+    fillCompareCountries();
+    updateSourceLabel(detected, true);
+    fillTargetZones('America/Toronto');
+    updateTargetDateForZone(true);
+    convert();
+
+    els.countrySearch.addEventListener('input', () => fillCountries(els.countrySearch.value));
+    els.countrySearch.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && els.country.value) { e.preventDefault(); fillTargetZones(); els.targetZone.focus(); }
+    });
+    els.country.addEventListener('change', () => fillTargetZones());
+    els.targetZone.addEventListener('change', convert);
+    els.targetDate.addEventListener('change', convert);
+    els.targetTime.addEventListener('change', convert);
+    els.sourceZone.addEventListener('change', () => { updateSourceLabel(els.sourceZone.value); convert(); });
+    els.compareCountry.addEventListener('change', () => fillCompareZones());
+    els.addTarget.addEventListener('click', addTarget);
+    document.querySelectorAll('.time-chip').forEach(btn => btn.addEventListener('click', () => {
+      els.targetTime.value = btn.dataset.time;
+      convert();
+    }));
+    async function copySchedule(successMessage = 'Schedule copied') {
+      try {
+        await navigator.clipboard.writeText(copyText);
+        showToast(successMessage);
+        return true;
+      } catch {
+        showToast('Copy is not available');
+        return false;
+      }
+    }
+    els.copyBtn.addEventListener('click', () => copySchedule());
+    function closeCookieNotice(message) {
+      els.cookieBanner.hidden = true;
+      if (message) showToast(message);
+    }
+    els.dismissCookies.addEventListener('click', () => closeCookieNotice('Cookie notice dismissed for this visit'));
+    els.cookieBanner.addEventListener('click', event => {
+      if (event.target === els.cookieBanner || event.target.closest('a[href="#privacy-policy"]')) closeCookieNotice();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !els.cookieBanner.hidden) closeCookieNotice();
+    });
+    requestAnimationFrame(() => els.dismissCookies.focus());
+
+
+    const featureEls = {
+      clocks: {
+        'America/New_York': document.getElementById('clockNewYork'),
+        'Europe/London': document.getElementById('clockLondon'),
+        'Asia/Dubai': document.getElementById('clockDubai'),
+        'Asia/Karachi': document.getElementById('clockKarachi')
+      },
+      postCountry: document.getElementById('postCountry'), postZone: document.getElementById('postZone'), checkPostNow: document.getElementById('checkPostNow'), postDecision: document.getElementById('postDecision'),
+      meetingDate: document.getElementById('meetingDate'), meetingTime: document.getElementById('meetingTime'), meetingSourceZone: document.getElementById('meetingSourceZone'), meetingCountry: document.getElementById('meetingCountry'), meetingClientZone: document.getElementById('meetingClientZone'), planMeeting: document.getElementById('planMeeting'), copyMeeting: document.getElementById('copyMeeting'), meetingYourResult: document.getElementById('meetingYourResult'), meetingClientResult: document.getElementById('meetingClientResult'),
+      heatHour: document.getElementById('heatHour'), heatHourLabel: document.getElementById('heatHourLabel'), heatmap: document.getElementById('heatmap'), goldenWindow: document.getElementById('goldenWindow'), heatRegionPicks: document.getElementById('heatRegionPicks'),
+      scheduleDate: document.getElementById('scheduleDate'), scheduleTime: document.getElementById('scheduleTime'), scheduleZone: document.getElementById('scheduleZone'), buildQueue: document.getElementById('buildQueue'), downloadIcs: document.getElementById('downloadIcs'), queuePreview: document.getElementById('queuePreview'), queueLocalTime: document.getElementById('queueLocalTime'), queueChecklist: document.getElementById('queueChecklist'),
+      snippetDate: document.getElementById('snippetDate'), snippetTime: document.getElementById('snippetTime'), snippetZone: document.getElementById('snippetZone'), snippetPicks: document.getElementById('snippetPicks'), snippetOutput: document.getElementById('snippetOutput'), copySnippet: document.getElementById('copySnippet'),
+      countdownDate: document.getElementById('countdownDate'), countdownTime: document.getElementById('countdownTime'), countdownZone: document.getElementById('countdownZone'), startCountdown: document.getElementById('startCountdown'), countdownValue: document.getElementById('countdownValue'), countdownLocalTime: document.getElementById('countdownLocalTime'),
+      dstAlert: document.getElementById('dstAlert'), dstAlertTitle: document.getElementById('dstAlertTitle'), dstAlertText: document.getElementById('dstAlertText'), dismissDst: document.getElementById('dismissDst')
+    };
+    let meetingCopyText = '';
+    let countdownInstant = null;
+    let countdownTimer = null;
+    let queueInstant = null;
+    const heatRegions = [
+      { zone: 'America/New_York', label: 'USA Eastern' },
+      { zone: 'America/Los_Angeles', label: 'USA Pacific' },
+      { zone: 'Europe/London', label: 'United Kingdom' },
+      { zone: 'Asia/Dubai', label: 'UAE' },
+      { zone: 'Asia/Karachi', label: 'Pakistan' }
+    ];
+    const snippetRegions = [
+      { zone: 'America/Los_Angeles', label: 'Los Angeles' },
+      { zone: 'America/New_York', label: 'New York' },
+      { zone: 'Europe/London', label: 'London' },
+      { zone: 'Asia/Dubai', label: 'Dubai' },
+      { zone: 'Asia/Karachi', label: 'Pakistan' },
+      { zone: 'Asia/Kolkata', label: 'India' }
+    ];
+
+    function fillFeatureCountries(select, selected) {
+      select.replaceChildren(...countries.map(c => new Option(c.name, c.code)));
+      select.value = countries.some(c => c.code === selected) ? selected : 'US';
+    }
+    function fillFeatureZones(select, zones, selected) {
+      select.replaceChildren(...zones.map(zone => new Option(`${cityName(zone)} — ${zone}`, zone)));
+      select.value = zones.includes(selected) ? selected : (zones[0] || '');
+    }
+    function fillAllFeatureZones(select, selected) {
+      const zones = allZones();
+      if (detected && !zones.includes(detected)) zones.push(detected);
+      zones.sort((a, b) => cityName(a).localeCompare(cityName(b)));
+      fillFeatureZones(select, zones, selected);
+    }
+    function setClientZones() {
+      const zones = COUNTRY_ZONES[featureEls.meetingCountry.value] || [];
+      fillFeatureZones(featureEls.meetingClientZone, zones, zones[0]);
+    }
+    function setPostZones() {
+      const zones = COUNTRY_ZONES[featureEls.postCountry.value] || [];
+      const preferred = { US: 'America/New_York', GB: 'Europe/London', AE: 'Asia/Dubai', PK: 'Asia/Karachi', CA: 'America/Toronto' }[featureEls.postCountry.value];
+      fillFeatureZones(featureEls.postZone, zones, preferred);
+    }
+    function updateWorldClocks() {
+      const now = new Date();
+      Object.entries(featureEls.clocks).forEach(([zone, element]) => {
+        element.textContent = new Intl.DateTimeFormat('en', { timeZone: zone, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }).format(now);
+        element.setAttribute('datetime', now.toISOString());
+      });
+    }
+    function checkPostNow() {
+      const zone = featureEls.postZone.value;
+      const country = featureEls.postCountry.value;
+      if (!zone || !country) return;
+      const now = new Date();
+      const p = parts(now, zone);
+      const local = `${formatTime(now, zone)} · ${formatDate(now, zone)}`;
+      const isGolden = p.hour >= 18 && p.hour < 22;
+      let reason = 'It is outside the 6–10 PM evening test window.';
+      if (p.hour < 6 || p.hour >= 23) reason = 'It is late night there.';
+      else if (p.hour < 12) reason = 'It is morning there.';
+      else if (p.hour < 18) reason = 'It is afternoon there.';
+      featureEls.postDecision.className = `decision-box ${isGolden ? 'yes' : 'no'}`;
+      featureEls.postDecision.replaceChildren();
+      const strong = document.createElement('strong');
+      strong.textContent = isGolden ? `Yes — it’s a good test window in ${countryName(country)}.` : `Not yet — ${countryName(country)} is outside the evening window.`;
+      const span = document.createElement('span');
+      span.textContent = `${local}. ${isGolden ? 'The local time is between 6 PM and 10 PM.' : reason}`;
+      featureEls.postDecision.append(strong, span);
+    }
+    function planMeeting() {
+      const sourceZone = featureEls.meetingSourceZone.value;
+      const clientZone = featureEls.meetingClientZone.value;
+      const instant = wallTimeToInstant(featureEls.meetingDate.value, featureEls.meetingTime.value, sourceZone);
+      if (!instant || !clientZone) {
+        featureEls.meetingYourResult.textContent = 'Choose a valid date and time';
+        featureEls.meetingClientResult.textContent = '—';
+        meetingCopyText = '';
+        return;
+      }
+      const yours = `${formatTime(instant, sourceZone)}, ${formatDate(instant, sourceZone)}`;
+      const client = `${formatTime(instant, clientZone)}, ${formatDate(instant, clientZone)}`;
+      featureEls.meetingYourResult.textContent = `${yours} · ${cityName(sourceZone)}`;
+      featureEls.meetingClientResult.textContent = `${client} · ${cityName(clientZone)}`;
+      meetingCopyText = `Meeting time
+You: ${yours} (${sourceZone})
+Client: ${client} (${clientZone})`;
+    }
+    async function copyMeeting() {
+      if (!meetingCopyText) planMeeting();
+      if (!meetingCopyText) { showToast('Choose a valid meeting time'); return; }
+      try { await navigator.clipboard.writeText(meetingCopyText); showToast('Meeting details copied'); }
+      catch { showToast('Copy is not available'); }
+    }
+    function renderCountdown() {
+      if (!countdownInstant) return;
+      const remaining = countdownInstant.getTime() - Date.now();
+      if (remaining <= 0) {
+        featureEls.countdownValue.textContent = 'Live now';
+        featureEls.countdownLocalTime.textContent = `Started ${formatTime(countdownInstant, els.sourceZone.value)}, ${formatDate(countdownInstant, els.sourceZone.value)} in your timezone.`;
+        clearInterval(countdownTimer);
+        return;
+      }
+      const total = Math.floor(remaining / 1000);
+      const days = Math.floor(total / 86400);
+      const hours = Math.floor((total % 86400) / 3600);
+      const minutes = Math.floor((total % 3600) / 60);
+      const seconds = total % 60;
+      featureEls.countdownValue.textContent = `${String(days).padStart(2,'0')}d ${String(hours).padStart(2,'0')}h ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s`;
+      featureEls.countdownLocalTime.textContent = `Your local start: ${formatTime(countdownInstant, els.sourceZone.value)}, ${formatDate(countdownInstant, els.sourceZone.value)} · ${els.sourceZone.value}`;
+    }
+    function startCountdown() {
+      const instant = wallTimeToInstant(featureEls.countdownDate.value, featureEls.countdownTime.value, featureEls.countdownZone.value);
+      if (!instant) {
+        featureEls.countdownValue.textContent = 'Invalid time';
+        featureEls.countdownLocalTime.textContent = 'Choose a valid date and time for the selected event timezone.';
+        return;
+      }
+      countdownInstant = instant;
+      if (countdownTimer) clearInterval(countdownTimer);
+      renderCountdown();
+      countdownTimer = setInterval(renderCountdown, 1000);
+    }
+
+    function activityClass(hour) {
+      if (hour >= 0 && hour < 6) return 'sleep';
+      if (hour >= 9 && hour < 14) return 'work';
+      if (hour >= 17 && hour < 22) return 'peak';
+      return 'steady';
+    }
+    function hourLabel(hour) {
+      const suffix = hour < 12 ? 'AM' : 'PM';
+      const value = hour % 12 || 12;
+      return `${value}:00 ${suffix}`;
+    }
+    function activeHeatZones() {
+      return [...featureEls.heatRegionPicks.querySelectorAll('[aria-pressed="true"]')].map(button => button.dataset.heatZone);
+    }
+    function goldenWindowFor(dateString, sourceZone) {
+      const candidates = [];
+      for (let hour = 0; hour < 24; hour++) {
+        const instant = wallTimeToInstant(dateString, `${String(hour).padStart(2, '0')}:00`, sourceZone);
+        if (!instant) { candidates.push(-100); continue; }
+        const east = parts(instant, 'America/New_York').hour;
+        const london = parts(instant, 'Europe/London').hour;
+        const bothAwake = east >= 7 && east < 23 && london >= 7 && london < 23;
+        const score = { sleep: 0, steady: 2, work: 1, peak: 3 };
+        candidates.push(bothAwake ? score[activityClass(east)] + score[activityClass(london)] : -100);
+      }
+      let bestStart = 0, bestScore = -Infinity;
+      for (let start = 0; start <= 21; start++) {
+        const total = candidates[start] + candidates[start + 1] + candidates[start + 2];
+        if (total > bestScore) { bestScore = total; bestStart = start; }
+      }
+      return { start: bestStart, end: bestStart + 3 };
+    }
+    function renderHeatmap() {
+      const selectedHour = Number(featureEls.heatHour.value);
+      const dateString = els.targetDate.value || isoInZone(new Date(), els.sourceZone.value);
+      const sourceZone = els.sourceZone.value;
+      const zones = activeHeatZones();
+      featureEls.heatHourLabel.textContent = `${hourLabel(selectedHour)} · ${cityName(sourceZone)}`;
+      featureEls.heatmap.replaceChildren(...zones.map(zone => {
+        const region = heatRegions.find(item => item.zone === zone);
+        const row = document.createElement('div');
+        row.className = 'heat-row';
+        const label = document.createElement('div');
+        label.className = 'heat-label';
+        const name = document.createElement('strong');
+        name.textContent = region.label;
+        const currentInstant = wallTimeToInstant(dateString, `${String(selectedHour).padStart(2, '0')}:00`, sourceZone);
+        const clock = document.createElement('span');
+        clock.textContent = currentInstant ? `${formatTime(currentInstant, zone)} ${shortZone(currentInstant, zone)}` : 'Clock change';
+        label.append(name, clock);
+        const track = document.createElement('div');
+        track.className = 'heat-track';
+        for (let hour = 0; hour < 24; hour++) {
+          const instant = wallTimeToInstant(dateString, `${String(hour).padStart(2, '0')}:00`, sourceZone);
+          const cell = document.createElement('span');
+          const targetHour = instant ? parts(instant, zone).hour : -1;
+          cell.className = `heat-cell ${targetHour < 0 ? 'steady' : activityClass(targetHour)}${hour === selectedHour ? ' is-current' : ''}`;
+          if (instant) cell.title = `${hourLabel(hour)} for you = ${formatTime(instant, zone)} in ${region.label}`;
+          track.append(cell);
+        }
+        row.append(label, track);
+        return row;
+      }));
+      const window = goldenWindowFor(dateString, sourceZone);
+      const inside = selectedHour >= window.start && selectedHour < window.end;
+      featureEls.goldenWindow.replaceChildren();
+      const title = document.createElement('strong');
+      title.textContent = `Golden Window · ${hourLabel(window.start)}–${hourLabel(window.end)}`;
+      const detail = document.createElement('span');
+      detail.textContent = inside
+        ? 'Your slider is inside today’s strongest 3-hour overlap for New York and London.'
+        : `Move the slider to ${hourLabel(window.start)}–${hourLabel(window.end)} to reach a strong New York + London overlap.`;
+      featureEls.goldenWindow.append(title, detail);
+    }
+    function toggleRegion(button, container, maximum, minimum, render) {
+      const active = [...container.querySelectorAll('[aria-pressed="true"]')];
+      const isActive = button.getAttribute('aria-pressed') === 'true';
+      if (isActive && active.length <= minimum) { showToast(`Keep at least ${minimum} regions selected`); return; }
+      if (!isActive && active.length >= maximum) { showToast(`Choose up to ${maximum} regions`); return; }
+      button.setAttribute('aria-pressed', String(!isActive));
+      render();
+    }
+
+    function buildQueue() {
+      const instant = wallTimeToInstant(featureEls.scheduleDate.value, featureEls.scheduleTime.value, featureEls.scheduleZone.value);
+      if (!instant) { showToast('Choose a valid release date and time'); return; }
+      queueInstant = instant;
+      featureEls.queuePreview.hidden = false;
+      featureEls.downloadIcs.disabled = false;
+      featureEls.queueLocalTime.textContent = `Your local release: ${formatTime(instant, els.sourceZone.value)}, ${formatDate(instant, els.sourceZone.value)} · ${els.sourceZone.value}`;
+      const tasks = [
+        { offset: -30, label: 'Thumbnail & tags final check' },
+        { offset: 0, label: 'Video goes live / Publish post' },
+        { offset: 15, label: 'Engage with initial comments' }
+      ];
+      featureEls.queueChecklist.replaceChildren(...tasks.map(task => {
+        const taskTime = new Date(instant.getTime() + task.offset * 60000);
+        const li = document.createElement('li');
+        const time = document.createElement('time');
+        time.textContent = task.offset === 0 ? 'At launch' : `${task.offset > 0 ? '+' : ''}${task.offset} min`;
+        const text = document.createElement('span');
+        text.textContent = `${task.label} · ${formatTime(taskTime, els.sourceZone.value)}`;
+        li.append(time, text);
+        return li;
+      }));
+    }
+    function formatIcsDate(date) {
+      return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    }
+    function escapeIcs(text) {
+      return text.replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\n/g, '\\n');
+    }
+    function downloadQueueIcs() {
+      if (!queueInstant) { buildQueue(); if (!queueInstant) return; }
+      const tasks = [
+        { offset: -30, label: 'Thumbnail & tags final check' },
+        { offset: 0, label: 'Video goes live / Publish post' },
+        { offset: 15, label: 'Engage with initial comments' }
+      ];
+      const stamp = formatIcsDate(new Date());
+      const events = tasks.map((task, index) => {
+        const start = new Date(queueInstant.getTime() + task.offset * 60000);
+        const end = new Date(start.getTime() + 15 * 60000);
+        return ['BEGIN:VEVENT', `UID:timezoney-${queueInstant.getTime()}-${index}@digitalmax`, `DTSTAMP:${stamp}`, `DTSTART:${formatIcsDate(start)}`, `DTEND:${formatIcsDate(end)}`, `SUMMARY:${escapeIcs(task.label)}`, 'DESCRIPTION:Created with TimeZoney creator upload queue', 'END:VEVENT'].join('\r\n');
+      }).join('\r\n');
+      const calendar = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//DigitalMax//TimeZoney//EN\r\nCALSCALE:GREGORIAN\r\n${events}\r\nEND:VCALENDAR\r\n`;
+      const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `timezoney-upload-queue-${featureEls.scheduleDate.value}.ics`;
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      showToast('Calendar file downloaded');
+    }
+
+    function activeSnippetZones() {
+      return [...featureEls.snippetPicks.querySelectorAll('[aria-pressed="true"]')].map(button => button.dataset.snippetZone);
+    }
+    function regionAbbreviation(date, zone) {
+      const offset = offsetMinutes(date, zone);
+      if (zone === 'America/Los_Angeles') return offset === -420 ? 'PDT' : 'PST';
+      if (zone === 'America/New_York') return offset === -240 ? 'EDT' : 'EST';
+      if (zone === 'Europe/London') return offset === 60 ? 'BST' : 'GMT';
+      if (zone === 'Asia/Dubai') return 'GST';
+      if (zone === 'Asia/Karachi') return 'PKT';
+      if (zone === 'Asia/Kolkata') return 'IST';
+      return shortZone(date, zone);
+    }
+    function renderSnippet() {
+      const instant = wallTimeToInstant(featureEls.snippetDate.value, featureEls.snippetTime.value, featureEls.snippetZone.value);
+      if (!instant) { featureEls.snippetOutput.value = 'Choose a valid event date, time, and timezone.'; return; }
+      const lines = activeSnippetZones().map(zone => {
+        const region = snippetRegions.find(item => item.zone === zone);
+        return `• ${region.label} (${regionAbbreviation(instant, zone)}): ${formatTime(instant, zone)} · ${new Intl.DateTimeFormat('en', { timeZone: zone, month: 'short', day: 'numeric' }).format(instant)}`;
+      });
+      featureEls.snippetOutput.value = `LIVE STREAM / PREMIERE TIMES:\n${lines.join('\n')}`;
+    }
+    async function copySnippet() {
+      renderSnippet();
+      try { await navigator.clipboard.writeText(featureEls.snippetOutput.value); showToast('Description snippet copied'); }
+      catch { showToast('Copy is not available'); }
+    }
+
+    function nextOffsetChange(zone, maxDays) {
+      const now = new Date();
+      let previous = offsetMinutes(now, zone);
+      for (let day = 1; day <= maxDays; day++) {
+        const test = new Date(now.getTime() + day * 86400000);
+        const current = offsetMinutes(test, zone);
+        if (current !== previous) return { date: test, difference: current - previous };
+        previous = current;
+      }
+      return null;
+    }
+    function showDstAlert() {
+      const shifts = [
+        { region: 'US', zone: 'America/New_York', change: nextOffsetChange('America/New_York', 30) },
+        { region: 'UK', zone: 'Europe/London', change: nextOffsetChange('Europe/London', 30) }
+      ].filter(item => item.change).sort((a, b) => a.change.date - b.change.date);
+      if (!shifts.length) return;
+      const next = shifts[0];
+      featureEls.dstAlert.hidden = false;
+      featureEls.dstAlertTitle.textContent = `Heads up: ${next.region} daylight saving shifts on ${new Intl.DateTimeFormat('en', { timeZone: next.zone, month: 'long', day: 'numeric', year: 'numeric' }).format(next.change.date)}.`;
+      featureEls.dstAlertText.textContent = 'A regular 6 PM target slot may move by 1 hour in your local schedule. Recheck future uploads after the shift.';
+    }
+
+    fillFeatureCountries(featureEls.postCountry, 'US');
+    setPostZones();
+    fillFeatureCountries(featureEls.meetingCountry, 'US');
+    setClientZones();
+    fillAllFeatureZones(featureEls.meetingSourceZone, els.sourceZone.value);
+    fillAllFeatureZones(featureEls.countdownZone, els.targetZone.value || 'America/New_York');
+    fillAllFeatureZones(featureEls.scheduleZone, 'America/New_York');
+    fillAllFeatureZones(featureEls.snippetZone, 'America/New_York');
+    featureEls.meetingDate.value = isoInZone(new Date(), featureEls.meetingSourceZone.value);
+    featureEls.meetingTime.value = new Intl.DateTimeFormat('en-GB', { timeZone: featureEls.meetingSourceZone.value, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date());
+    const tomorrow = new Date(Date.now() + 86400000);
+    featureEls.countdownDate.value = isoInZone(tomorrow, featureEls.countdownZone.value);
+    featureEls.countdownTime.value = '20:00';
+    featureEls.scheduleDate.value = isoInZone(tomorrow, featureEls.scheduleZone.value);
+    featureEls.snippetDate.value = isoInZone(tomorrow, featureEls.snippetZone.value);
+    updateWorldClocks();
+    setInterval(updateWorldClocks, 1000);
+    checkPostNow();
+    planMeeting();
+    renderHeatmap();
+    renderSnippet();
+    showDstAlert();
+    featureEls.postCountry.addEventListener('change', () => { setPostZones(); checkPostNow(); });
+    featureEls.postZone.addEventListener('change', checkPostNow);
+    featureEls.checkPostNow.addEventListener('click', checkPostNow);
+    featureEls.meetingCountry.addEventListener('change', () => { setClientZones(); planMeeting(); });
+    [featureEls.meetingDate, featureEls.meetingTime, featureEls.meetingSourceZone, featureEls.meetingClientZone].forEach(element => element.addEventListener('change', planMeeting));
+    featureEls.planMeeting.addEventListener('click', planMeeting);
+    featureEls.copyMeeting.addEventListener('click', copyMeeting);
+    featureEls.startCountdown.addEventListener('click', startCountdown);
+    featureEls.heatHour.addEventListener('input', renderHeatmap);
+    featureEls.heatRegionPicks.addEventListener('click', event => {
+      const button = event.target.closest('[data-heat-zone]');
+      if (button) toggleRegion(button, featureEls.heatRegionPicks, 5, 2, renderHeatmap);
+    });
+    els.sourceZone.addEventListener('change', renderHeatmap);
+    els.targetDate.addEventListener('change', renderHeatmap);
+    featureEls.buildQueue.addEventListener('click', buildQueue);
+    featureEls.downloadIcs.addEventListener('click', downloadQueueIcs);
+    [featureEls.scheduleDate, featureEls.scheduleTime, featureEls.scheduleZone].forEach(element => element.addEventListener('change', () => {
+      queueInstant = null;
+      featureEls.queuePreview.hidden = true;
+      featureEls.downloadIcs.disabled = true;
+    }));
+    featureEls.snippetPicks.addEventListener('click', event => {
+      const button = event.target.closest('[data-snippet-zone]');
+      if (button) toggleRegion(button, featureEls.snippetPicks, 5, 4, renderSnippet);
+    });
+    [featureEls.snippetDate, featureEls.snippetTime, featureEls.snippetZone].forEach(element => element.addEventListener('change', renderSnippet));
+    featureEls.copySnippet.addEventListener('click', copySnippet);
+    featureEls.dismissDst.addEventListener('click', () => { featureEls.dstAlert.hidden = true; });
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.getElementById('siteNav');
+    function setNavOpen(open) {
+      siteNav.classList.toggle('is-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      navToggle.querySelector('[aria-hidden="true"]').textContent = open ? '×' : '☰';
+    }
+    navToggle.addEventListener('click', () => setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+    siteNav.addEventListener('click', event => {
+      if (event.target.closest('a')) setNavOpen(false);
+    });
+    document.addEventListener('click', event => {
+      if (navToggle.getAttribute('aria-expanded') === 'true' && !siteNav.contains(event.target) && !navToggle.contains(event.target)) setNavOpen(false);
+    });
+
+
+
+    const pageKey = document.body.dataset.page || 'home';
+    const policyPages = {
+      about: document.getElementById('about'),
+      contact: document.getElementById('contact'),
+      disclaimer: document.getElementById('disclaimer'),
+      privacy: document.getElementById('privacy-policy'),
+      terms: document.getElementById('terms-of-use')
+    };
+    if (policyPages[pageKey]) {
+      document.body.classList.add('policy-mode');
+      policyPages[pageKey].hidden = false;
+    }
+    document.querySelectorAll('[data-scroll-target]').forEach(button => {
+      button.addEventListener('click', () => {
+        document.getElementById(button.dataset.scrollTarget)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+</html>
